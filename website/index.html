@@ -24,10 +24,12 @@
   --hand:"Caveat","Bradley Hand","Segoe Print",cursive;
   --gutter-l:max(16px, env(safe-area-inset-left, 0px));
   --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+  --head:63px;
+  --screen:calc(100svh - var(--head));
   color-scheme:light;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:var(--head);scroll-snap-type:y proximity}
 body{margin:0;background:var(--linen);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--linen)}
 img{display:block;max-width:100%}
@@ -59,23 +61,25 @@ nav.main a:hover{color:var(--sage-deep);opacity:1;text-decoration:underline;text
 @media (max-width:460px){.mark{font-size:.8rem;letter-spacing:.12em}.bar .btn.small{display:none}}
 
 /* hero */
-.hero{position:relative;padding-block:28px 0}
+.hero{position:relative;padding-block:24px 0;min-height:var(--screen);display:flex;flex-direction:column;scroll-snap-align:start}
+.hero-grid{flex:1}
 .hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:0;align-items:stretch;border-radius:4px;overflow:hidden;box-shadow:0 18px 40px -24px rgba(44,49,40,.45)}
-.hero-photo{min-height:420px;background:url(img/hero.jpg) center/cover}
+.hero-photo{min-height:300px;background:url(img/hero.jpg) center/cover}
 .hero-card{background:var(--sage);color:#fff;padding:44px 36px;display:flex;flex-direction:column;gap:18px;justify-content:center;position:relative}
 .hero-card h1{font-size:clamp(2rem,4.6vw,3.3rem);line-height:1.08;letter-spacing:.14em}
 .hero-card .place{letter-spacing:.24em;text-transform:uppercase;font-size:.8rem;opacity:.9}
 .hero-card .lead{font-size:1.08rem;max-width:34ch}
 .hero-card .hand{color:#fff;opacity:.95}
 .sprig{position:absolute;right:18px;top:18px;width:70px;opacity:.55}
-@media (max-width:820px){.hero-grid{grid-template-columns:1fr}.hero-photo{min-height:300px}.hero-card{padding:32px 24px}}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr;grid-template-rows:1fr auto}.hero-photo{min-height:240px}.hero-card{padding:32px 24px}}
 
-.facts{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;padding-block:26px;font-size:.95rem;color:var(--sage-deep)}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;padding-block:22px;font-size:.95rem;color:var(--sage-deep)}
 .facts span{display:flex;align-items:baseline;gap:6px}
 .facts b{font-family:var(--display);font-weight:400;font-size:1.35rem;color:var(--ink)}
 
 /* sections */
-section{padding-block:72px}
+section{padding-block:64px;min-height:var(--screen);display:flex;flex-direction:column;justify-content:center;scroll-snap-align:start}
+section>.wrap{width:100%}
 .eyebrow{display:block;margin-bottom:8px}
 .intro{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .intro p+p{margin-top:14px}
@@ -168,14 +172,11 @@ section{padding-block:72px}
 
 footer{border-top:1px solid var(--line);padding-block:28px;font-size:.85rem;color:var(--sage-deep)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
-.draft{background:var(--lavender);color:#fff;text-align:center;font-size:.8rem;padding:6px 16px;letter-spacing:.04em}
 
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pc,.btn{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;scroll-snap-type:none}.pc,.btn{transition:none}}
 </style>
 </head>
 <body>
-
-<div class="draft" data-i18n="draft">Entwurf – Vorschau zur Abstimmung</div>
 
 <header>
   <div class="wrap bar">
@@ -360,7 +361,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
 
 <script>
 const T={
-en:{draft:"Draft – preview for review",nav_house:"The house",nav_garden:"Garden & pool",nav_area:"Surroundings",nav_reviews:"Guests",nav_contact:"Contact",book_short:"Book",
+en:{nav_house:"The house",nav_garden:"Garden & pool",nav_area:"Surroundings",nav_reviews:"Guests",nav_contact:"Contact",book_short:"Book",
 lead:"A lovingly furnished stone house for four, with a garden, a pool and views over the vineyards all the way to the sea.",hand_hero:"Bienvenue chez nous!",book_cta:"Availability & booking",
 f_guests:"guests",f_rooms:"bedrooms",f_pool:"m pool",f_rating:"guest rating",hand_intro:"Welcome to the south",intro_h:"Arrive and breathe",
 intro_p1:"The gîte is in Caussiniojouls, a small village north of Béziers on the edge of the Haut-Languedoc nature park. It stands on the grounds of Sibylle, who welcomes her guests warmly and is happy to share tips for the area.",
@@ -383,7 +384,7 @@ hand_prac:"Good to know",prac_h:"Practical info",p_arr:"Arrival & departure",p_a
 p_inc:"Included",p_inc1:"Bed linen, towels, table linen",p_inc2:"Electricity, heating, Wi-Fi",p_inc3:"Final cleaning",p_note:"Please note",p_note1:"Sorry, no pets",p_note2:"Deposit €200",p_note3:"Sibylle speaks German, French and English",
 hand_book:"À bientôt!",book_h:"Book your stay",book_p:"Available dates, prices and secure booking are on the Gîtes de France website.",book_price:"from €805 per week",book_cta2:"Go to Gîtes de France",gdf_label:"Approved by Gîtes de France · Ref. 34G062",
 hand_host:"Your host",host_p:"Questions about the house, getting here or day trips? Write or call me, I'm happy to help.",c_phone:"Phone",c_addr:"Address",c_map:"View on the map",foot:"Holiday home in Caussiniojouls, Hérault, Occitanie"},
-fr:{draft:"Ébauche – aperçu pour validation",nav_house:"La maison",nav_garden:"Jardin & piscine",nav_area:"Alentours",nav_reviews:"Avis",nav_contact:"Contact",book_short:"Réserver",
+fr:{nav_house:"La maison",nav_garden:"Jardin & piscine",nav_area:"Alentours",nav_reviews:"Avis",nav_contact:"Contact",book_short:"Réserver",
 lead:"Une maison en pierre décorée avec amour pour quatre personnes, avec jardin, piscine et vue sur les vignes jusqu'à la mer.",hand_hero:"Bienvenue chez nous !",book_cta:"Disponibilités & réservation",
 f_guests:"personnes",f_rooms:"chambres",f_pool:"m de piscine",f_rating:"avis des hôtes",hand_intro:"Bienvenue dans le Sud",intro_h:"Arriver et respirer",
 intro_p1:"Le gîte se trouve à Caussiniojouls, petit village au nord de Béziers, aux portes du Parc naturel régional du Haut-Languedoc. Il est situé sur le terrain de Sibylle, qui accueille ses hôtes chaleureusement et partage volontiers ses bonnes adresses.",
