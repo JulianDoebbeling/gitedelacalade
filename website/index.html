@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Gîte de la Calade</title>
-<meta name="description" content="Ferienhaus für 4 Personen mit Pool in Caussiniojouls, Hérault, Südfrankreich.">
+<meta name="description" content="Ferienhaus für 4 bis 6 Personen mit Pool in Caussiniojouls, im Weinbaugebiet AOC Faugères, Hérault, Südfrankreich.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:wght@400;500;600&family=Caveat:wght@500&display=swap">
@@ -13,12 +13,12 @@
 :root{
   --sage:#7A8670;        /* main colour from the postcard band */
   --sage-deep:#4D5944;   /* text on light, buttons */
-  --sage-pale:#E4E7DC;   /* soft sage surface */
-  --linen:#F6F3EC;       /* page ground */
+  --sage-pale:#D3DAC7;   /* mid sage surface for bands */
+  --linen:#E6EADF;       /* page ground: light sage */
   --ink:#2C3128;         /* body text */
   --lavender:#7C6FA8;    /* playful accent from the garden */
   --clay:#B5523B;        /* tiny warm accent from the textiles */
-  --line:#CDD2C3;
+  --line:#C2CAB6;
   --display:"Marcellus","Trajan Pro","Cinzel",Georgia,serif;
   --body:"Figtree","Segoe UI",system-ui,sans-serif;
   --hand:"Caveat","Bradley Hand","Segoe Print",cursive;
@@ -43,7 +43,7 @@ p{margin:0}
 :focus-visible{outline:2px solid var(--lavender);outline-offset:3px}
 
 /* header */
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(246,243,236,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(230,234,223,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;gap:20px;padding-block:12px}
 .mark{font-family:var(--display);letter-spacing:.18em;font-size:1rem;text-decoration:none;color:var(--sage-deep);white-space:nowrap}
 nav.main{display:flex;gap:18px;margin-left:auto;font-size:.92rem}
@@ -51,12 +51,12 @@ nav.main a{text-decoration:none;color:var(--ink);opacity:.85}
 nav.main a:hover{color:var(--sage-deep);opacity:1;text-decoration:underline;text-underline-offset:4px}
 .langs{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
 .langs button{font:600 .75rem var(--body);letter-spacing:.06em;background:none;border:0;padding:6px 9px;cursor:pointer;color:var(--sage-deep)}
-.langs button[aria-pressed="true"]{background:var(--sage);color:#fff}
+.langs button[aria-pressed="true"]{background:var(--lavender);color:#fff}
 .btn{display:inline-flex;align-items:center;gap:10px;background:var(--sage-deep);color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;padding:12px 20px;border-radius:999px;transition:transform .2s,background .2s;white-space:nowrap}
 .btn:hover{background:var(--ink);transform:translateY(-1px)}
 .btn.small{padding:8px 14px;font-size:.85rem}
 .btn.light{background:#fff;color:var(--sage-deep)}
-.btn.light:hover{background:var(--sage-pale)}
+.btn.light:hover{background:#F1EEF8;color:var(--lavender)}
 @media (max-width:900px){nav.main{display:none}.langs{margin-left:auto}}
 @media (max-width:460px){.mark{font-size:.8rem;letter-spacing:.12em}.bar .btn.small{display:none}}
 
@@ -70,7 +70,7 @@ nav.main a:hover{color:var(--sage-deep);opacity:1;text-decoration:underline;text
 .hero-card .place{letter-spacing:.24em;text-transform:uppercase;font-size:.8rem;opacity:.9}
 .hero-card .lead{font-size:1.08rem;max-width:34ch}
 .hero-card .hand{color:#fff;opacity:.95}
-.sprig{position:absolute;right:18px;top:18px;width:70px;opacity:.55}
+.cap{align-self:flex-start;background:var(--lavender);color:#fff;font-weight:600;font-size:.95rem;letter-spacing:.04em;padding:7px 16px;border-radius:999px}
 @media (max-width:820px){.hero-grid{grid-template-columns:1fr;grid-template-rows:1fr auto}.hero-photo{min-height:240px}.hero-card{padding:32px 24px}}
 
 .facts{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;padding-block:22px;font-size:.95rem;color:var(--sage-deep)}
@@ -120,6 +120,11 @@ section>.wrap{width:100%}
 .pool-note div{min-width:120px}
 .pool-note b{display:block;font-family:var(--display);font-weight:400;font-size:2rem;color:var(--sage-deep)}
 .pool-note small{font-size:.85rem;color:var(--sage-deep)}
+.cook{margin-top:48px;display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:center;background:#F4F6EF;border-left:4px solid var(--lavender);border-radius:4px;padding:18px;max-width:780px;margin-inline:auto}
+.cook img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:3px}
+.cook div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.cook h3{color:var(--sage-deep);font-size:1.2rem}
+@media (max-width:600px){.cook{grid-template-columns:1fr}.cook img{aspect-ratio:16/10}}
 
 /* surroundings */
 .surround{display:grid;grid-template-columns:1fr 1.1fr;gap:56px}
@@ -128,7 +133,7 @@ section>.wrap{width:100%}
 .signs .km{font-variant-numeric:tabular-nums;font-weight:600;font-size:.8rem;text-align:center;background:var(--sage);color:#fff;padding:4px 0;border-radius:3px 12px 12px 3px}
 .signs .km.here{background:var(--lavender)}
 .trips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.trips span{border:1px solid var(--sage);color:var(--sage-deep);border-radius:999px;padding:6px 14px;font-size:.9rem;background:#fff}
+.trips span{border:1px solid var(--sage);color:var(--sage-deep);border-radius:999px;padding:6px 14px;font-size:.9rem;background:#F4F6EF}
 @media (max-width:820px){.surround{grid-template-columns:1fr}}
 
 /* reviews */
@@ -174,6 +179,21 @@ footer{border-top:1px solid var(--line);padding-block:28px;font-size:.85rem;colo
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
 
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;scroll-snap-type:none}.pc,.btn{transition:none}}
+/* ===== Google reviews (Trustindex) in the site's green ===== */
+.google-rev{margin-top:48px;display:flex;flex-direction:column;gap:18px}
+.google-rev h3{color:#fff;letter-spacing:.14em}
+.ti-holder{min-height:120px}
+.ti-holder .ti-widget{--ti-sage:#76836B;font-family:var(--body)!important}
+.ti-holder .ti-widget .ti-review-item>.ti-inner,
+.ti-holder .ti-widget .ti-review-item .ti-inner{background:#FBF9F3!important;border:0!important;border-radius:4px!important;box-shadow:0 16px 30px -20px rgba(0,0,0,.45)!important}
+.ti-holder .ti-widget .ti-name,.ti-holder .ti-widget .ti-review-content,.ti-holder .ti-widget .ti-review-text-container{color:#2C3128!important;font-family:var(--body)!important}
+.ti-holder .ti-widget .ti-name{font-weight:600!important}
+.ti-holder .ti-widget .ti-date{color:#76836B!important}
+.ti-holder .ti-widget .ti-read-more span,.ti-holder .ti-widget .ti-read-more-active{color:#6F619F!important}
+.ti-holder .ti-widget .ti-rating-text,.ti-holder .ti-widget .ti-rating-text *,.ti-holder .ti-widget .ti-footer,.ti-holder .ti-widget .ti-footer *{color:#fff!important}
+.ti-holder .ti-widget .ti-controls .ti-next,.ti-holder .ti-widget .ti-controls .ti-prev{background-color:#46523D!important;border-color:#46523D!important;border-radius:50%!important}
+.ti-holder .ti-widget .ti-controls .ti-next:before,.ti-holder .ti-widget .ti-controls .ti-prev:before,.ti-holder .ti-widget .ti-controls .ti-next:after,.ti-holder .ti-widget .ti-controls .ti-prev:after{background-color:#fff!important;border-color:#fff!important}
+.ti-holder .ti-widget .ti-review-item .ti-stars .ti-star{filter:none}
 </style>
 </head>
 <body>
@@ -203,16 +223,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
     <div class="hero-grid">
       <div class="hero-photo" role="img" aria-label="Pool mit Blick über die Weinberge"></div>
       <div class="hero-card">
-        <svg class="sprig" viewBox="0 0 80 80" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 70 C30 52 46 34 70 10"/><ellipse cx="30" cy="44" rx="9" ry="4" transform="rotate(-50 30 44)" fill="#fff" fill-opacity=".25"/><ellipse cx="44" cy="36" rx="9" ry="4" transform="rotate(30 44 36)" fill="#fff" fill-opacity=".25"/><ellipse cx="50" cy="24" rx="8" ry="3.6" transform="rotate(-55 50 24)" fill="#fff" fill-opacity=".25"/><ellipse cx="62" cy="20" rx="8" ry="3.6" transform="rotate(25 62 20)" fill="#fff" fill-opacity=".25"/><circle cx="22" cy="56" r="4.5" fill="#fff" fill-opacity=".5"/></svg>
-        <span class="place">Caussiniojouls · Hérault</span>
+        <span class="place">Caussiniojouls · AOC Faugères · Hérault</span>
         <h1>Gîte de la Calade</h1>
-        <p class="lead" data-i18n="lead">Ein liebevoll eingerichtetes Steinhaus für vier, mit Garten, Pool und Blick über die Weinberge bis zum Meer.</p>
+        <span class="cap" data-i18n="cap">Für 4 bis 6 Personen</span>
+        <p class="lead" data-i18n="lead">Ein Steinhaus im Landhausstil, eingebettet zwischen den Rebfeldern des Weinbaugebiets AOC Faugères. Mit Garten, Pool und Blick über die Weinberge bis zum Meer.</p>
         <span class="hand" data-i18n="hand_hero">Bienvenue chez nous!</span>
         <div><a class="btn light book-link" href="https://www.gites-de-france.com/fr/occitanie/herault/gite-de-la-calade-34g062" target="_blank" rel="noopener"><span data-i18n="book_cta">Verfügbarkeit &amp; Buchung</span> →</a></div>
       </div>
     </div>
     <div class="facts">
-      <span><b>4</b> <span data-i18n="f_guests">Gäste</span></span>
+      <span><b>4–6</b> <span data-i18n="f_guests">Gäste</span></span>
       <span><b>2</b> <span data-i18n="f_rooms">Schlafzimmer</span></span>
       <span><b>88</b> m²</span>
       <span><b>10×5</b> <span data-i18n="f_pool">m Pool</span></span>
@@ -225,8 +245,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
       <div class="text">
         <span class="hand eyebrow" data-i18n="hand_intro">Willkommen im Süden</span>
         <h2 data-i18n="intro_h">Ankommen und durchatmen</h2>
-        <p style="margin-top:18px" data-i18n="intro_p1">Das Gîte liegt in Caussiniojouls, einem kleinen Dorf nördlich von Béziers, am Rand des Regionalparks Haut-Languedoc. Es steht auf dem Grundstück von Sibylle, die ihre Gäste herzlich empfängt und gern Tipps für die Gegend gibt.</p>
-        <p data-i18n="intro_p2">Natursteinmauern, Holzbalken, rote Teppiche und viele Blumen: Hier ist alles mit Liebe zum Detail ausgesucht. Bettwäsche, Handtücher, Strom, Heizung und Endreinigung sind inklusive.</p>
+        <p style="margin-top:18px" data-i18n="intro_p1">Das Gîte liegt in Caussiniojouls, einem kleinen Dorf nördlich von Béziers, am Rand des Regionalparks Haut-Languedoc. Es steht auf dem Grundstück von Sibylle und ihrem Mann, die ihre Gäste herzlich empfangen und gern Tipps für die Gegend geben.</p>
+        <p data-i18n="intro_p2">Das Haus ist liebevoll im Landhausstil eingerichtet, mit marokkanischen Elementen: Natursteinmauern, Holzbalken, rote Teppiche, Laternen und viele Blumen. Bettwäsche, Handtücher, Strom, Heizung und Endreinigung sind inklusive.</p>
       </div>
       <div class="collage" aria-hidden="true">
         <figure class="pc c1"><img src="img/fenster.jpg" alt="" loading="lazy"><figcaption>la fenêtre</figcaption></figure>
@@ -248,7 +268,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
         <article class="room"><img src="img/bad.jpg" alt="Duschbad in warmen Gelbtönen" loading="lazy"><div><span class="floorline" data-i18n="ground">Erdgeschoss</span><h3 data-i18n="r_bath">Duschbad</h3><p data-i18n="r_bath_p">Bad mit offener Dusche, Waschbecken und WC.</p></div></article>
         <article class="room"><img src="img/zimmer1.jpg" alt="Schlafzimmer mit geschnitztem Kopfteil" loading="lazy"><div><span class="floorline" data-i18n="upper">Obergeschoss</span><h3 data-i18n="r_room1">Schlafzimmer 1</h3><p data-i18n="r_room1_p">20 m², Doppelbett 160 × 200 cm, mit geschnitztem Kopfteil und Leseecke.</p></div></article>
         <article class="room"><img src="img/zimmer2.jpg" alt="Schlafzimmer mit Himmelbett" loading="lazy"><div><span class="floorline" data-i18n="upper">Obergeschoss</span><h3 data-i18n="r_room2">Schlafzimmer 2</h3><p data-i18n="r_room2_p">20 m², Himmelbett 180 × 200 cm und ein alter Sekretär.</p></div></article>
-        <article class="room"><img src="img/essen.jpg" alt="Essplatz mit Blick in den Garten" loading="lazy"><div><span class="floorline" data-i18n="extras">Auf Anfrage</span><h3 data-i18n="r_extra">Für Familien</h3><p data-i18n="r_extra_p">Zwei Zustellbetten, Babybett und Hochstuhl. Frühstück oder Abendessen bei Sibylle gegen Aufpreis.</p></div></article>
+        <article class="room"><img src="img/essen.jpg" alt="Essplatz mit Blick in den Garten" loading="lazy"><div><span class="floorline" data-i18n="extras">Auf Anfrage</span><h3 data-i18n="r_extra">Für Familien</h3><p data-i18n="r_extra_p">Zwei Zustellbetten für bis zu 6 Personen, dazu Babybett und Hochstuhl.</p></div></article>
       </div>
     </div>
   </section>
@@ -257,7 +277,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
     <div class="wrap">
       <div class="headrow">
         <div><span class="hand eyebrow" data-i18n="hand_garden">Draußen ist das zweite Wohnzimmer</span><h2 data-i18n="garden_h">Garten &amp; Pool</h2></div>
-        <p data-i18n="garden_p">Ein schattiger Platz unter dem Baum vor dem Haus, eine überdachte Terrasse mit großem Tisch und Grill und ein Pool, den sich die Gäste mit Sibylle teilen.</p>
+        <p data-i18n="garden_p">Ein schattiger Platz unter dem Baum vor dem Haus, eine überdachte Terrasse mit großem Tisch und Grill und ein Pool, den sich die Gäste mit Sibylle und ihrem Mann teilen.</p>
       </div>
       <div class="wall">
         <figure class="pc wide"><img src="img/pool2.jpg" alt="Pool mit Liegen" loading="lazy"><figcaption>la piscine</figcaption></figure>
@@ -271,6 +291,14 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
         <div><b>10 × 5 m</b><small data-i18n="pn_size">Pool</small></div>
         <div><b>1–2,5 m</b><small data-i18n="pn_depth">Wassertiefe</small></div>
         <div><b>40 km</b><small data-i18n="pn_sea">bis zum Mittelmeer</small></div>
+      </div>
+      <div class="cook">
+        <img src="img/abend.jpg" alt="Gedeckter Tisch auf der überdachten Terrasse" loading="lazy">
+        <div>
+          <span class="hand" data-i18n="hand_cook">Bon appétit!</span>
+          <h3 data-i18n="cook_h">Auf Wunsch kocht Sibylle für Sie</h3>
+          <p data-i18n="cook_p">Ob Frühstück, Mittag- oder Abendessen: Sibylle bekocht ihre Gäste gern. Auf Anfrage und gegen Aufpreis.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -308,6 +336,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
         <figure class="rv"><blockquote data-i18n="rv3">Liebevoll eingerichtet und hervorragend ausgestattet, es fehlt an nichts. Der Blick vom Pool über die Weinberge bis zum Meer: ein Anblick, den wir jeden Tag aufs Neue genossen haben.</blockquote><cite>Regina &amp; Hartmut · 06/2026</cite></figure>
         <figure class="rv"><blockquote data-i18n="rv4">Ein Ort zum Entspannen und zum Wiederkommen. Der Garten mit Pool fühlte sich wie eine Erweiterung des Hauses an. Der Abschied fiel uns schwer.</blockquote><cite>Sape · 04/2026</cite></figure>
       </div>
+      <div class="google-rev">
+        <h3 data-i18n="g_rev_h">Bewertungen auf Google</h3>
+        <div class="ti-holder"><script defer async src="https://cdn.trustindex.io/loader.js?7ac3e6385295722ca72646f4ba5"></script></div>
+      </div>
     </div>
   </section>
 
@@ -318,7 +350,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
       <div class="prac">
         <div><h3 data-i18n="p_arr">An- &amp; Abreise</h3><ul><li data-i18n="p_arr1">Anreise ab 16:00 Uhr</li><li data-i18n="p_arr2">Abreise bis 10:00 Uhr</li><li data-i18n="p_arr3">Eigener Parkplatz vor dem Haus</li></ul></div>
         <div><h3 data-i18n="p_inc">Inklusive</h3><ul><li data-i18n="p_inc1">Bettwäsche, Handtücher, Tischwäsche</li><li data-i18n="p_inc2">Strom, Heizung, WLAN</li><li data-i18n="p_inc3">Endreinigung</li></ul></div>
-        <div><h3 data-i18n="p_note">Hinweise</h3><ul><li data-i18n="p_note1">Haustiere sind leider nicht erlaubt</li><li data-i18n="p_note2">Kaution 200 €</li><li data-i18n="p_note3">Sibylle spricht Deutsch, Französisch und Englisch</li></ul></div>
+        <div><h3 data-i18n="p_note">Hinweise</h3><ul><li data-i18n="p_note1">Haustiere sind leider nicht erlaubt</li><li data-i18n="p_note2">Kaution 200 €</li><li data-i18n="p_note3">Sibylle spricht Deutsch, Französisch und Englisch</li><li data-i18n="p_note4">Frühstück, Mittag- und Abendessen auf Anfrage</li></ul></div>
       </div>
     </div>
   </section>
@@ -339,9 +371,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
       <div>
         <div class="host">
           <img src="img/blumen.jpg" alt="" loading="lazy">
-          <div><span class="hand" data-i18n="hand_host">Ihre Gastgeberin</span><h2>Sibylle</h2></div>
+          <div><span class="hand" data-i18n="hand_host">Ihre Gastgeber</span><h2 data-i18n="host_h">Sibylle &amp; ihr Mann</h2></div>
         </div>
-        <p style="margin-top:18px;max-width:52ch" data-i18n="host_p">Fragen zum Haus, zur Anreise oder zu Ausflügen? Schreiben Sie mir oder rufen Sie an, ich helfe gern.</p>
+        <p style="margin-top:18px;max-width:52ch" data-i18n="host_p">Fragen zum Haus, zur Anreise oder zu Ausflügen? Schreiben Sie Sibylle oder rufen Sie an, wir helfen gern.</p>
       </div>
       <ul class="clist">
         <li><span data-i18n="c_phone">Telefon</span><div>CH +41 79 728 36 34<br>FR +33 6 27 57 37 48</div></li>
@@ -362,17 +394,17 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
 
 <script>
 const T={
-en:{nav_welcome:"Welcome",nav_house:"The house",nav_garden:"Garden & pool",nav_area:"Surroundings",nav_reviews:"Guests",nav_contact:"Contact",book_short:"Book",
-lead:"A lovingly furnished stone house for four, with a garden, a pool and views over the vineyards all the way to the sea.",hand_hero:"Bienvenue chez nous!",book_cta:"Availability & booking",
+en:{g_rev_h:"Reviews on Google",nav_welcome:"Welcome",nav_house:"The house",nav_garden:"Garden & pool",nav_area:"Surroundings",nav_reviews:"Guests",nav_contact:"Contact",book_short:"Book",
+cap:"For 4 to 6 guests",lead:"A country-style stone house nestled among the vines of the AOC Faugères wine region. With a garden, a pool and views over the vineyards all the way to the sea.",hand_hero:"Bienvenue chez nous!",book_cta:"Availability & booking",
 f_guests:"guests",f_rooms:"bedrooms",f_pool:"m pool",f_rating:"guest rating",hand_intro:"Welcome to the south",intro_h:"Arrive and breathe",
-intro_p1:"The gîte is in Caussiniojouls, a small village north of Béziers on the edge of the Haut-Languedoc nature park. It stands on the grounds of Sibylle, who welcomes her guests warmly and is happy to share tips for the area.",
-intro_p2:"Stone walls, wooden beams, red rugs and flowers everywhere: everything here is chosen with care. Bed linen, towels, electricity, heating and final cleaning are included.",
+intro_p1:"The gîte is in Caussiniojouls, a small village north of Béziers on the edge of the Haut-Languedoc nature park. It stands on the grounds of Sibylle and her husband, who welcome their guests warmly and are happy to share tips for the area.",
+intro_p2:"The house is lovingly furnished in country style with Moroccan touches: stone walls, wooden beams, red rugs, lanterns and flowers everywhere. Bed linen, towels, electricity, heating and final cleaning are included.",
 hand_house:"88 m² to feel at home",house_h:"The house",house_p:"Living, cooking and dining downstairs, two large bedrooms under the wooden beams upstairs. The ground floor is air-conditioned.",
 ground:"Ground floor",upper:"Upstairs",extras:"On request",r_living:"Living room",r_living_p:"Comfy sofas in front of the old stone wall, plus a projector with films for the evenings.",
 r_kitchen:"Kitchen",r_kitchen_p:"Open kitchen with oven, two hobs, kettle, toaster and Italian coffee maker.",r_bath:"Shower room",r_bath_p:"Bathroom with walk-in shower, washbasin and WC.",
 r_room1:"Bedroom 1",r_room1_p:"20 m², double bed 160 × 200 cm, with a carved headboard and a reading corner.",r_room2:"Bedroom 2",r_room2_p:"20 m², four-poster bed 180 × 200 cm and an antique writing desk.",
-r_extra:"For families",r_extra_p:"Two extra beds, a cot and a high chair. Breakfast or dinner with Sibylle at extra cost.",
-hand_garden:"Outside is the second living room",garden_h:"Garden & pool",garden_p:"A shady spot under the tree in front of the house, a covered terrace with a large table and barbecue, and a pool that guests share with Sibylle.",
+r_extra:"For families",r_extra_p:"Two extra beds for up to 6 guests, plus a cot and a high chair.",
+hand_garden:"Outside is the second living room",garden_h:"Garden & pool",garden_p:"A shady spot under the tree in front of the house, a covered terrace with a large table and barbecue, and a pool that guests share with Sibylle and her husband.",hand_cook:"Bon appétit!",cook_h:"Sibylle cooks for you on request",cook_p:"Breakfast, lunch or dinner: Sibylle is happy to cook for her guests. On request and at extra cost.",
 pn_size:"pool",pn_depth:"water depth",pn_sea:"to the Mediterranean",hand_area:"Out into nature",area_h:"Surroundings",
 area_p:"A cycle path runs right past the house. Nearby you'll find river swimming spots, climbing, canyoning and treetop trails. And of course the local wines.",
 onsite:"on site",d_hike:"Walking and long-distance trails",d_food:"Restaurant and vineyard",d_forest:"Forest",d_shop:"Shops, tennis",d_ride:"Horse riding, doctor",d_town:"Bédarieux station, cinema, museums",d_beach:"Mediterranean beaches",d_air:"Béziers Cap d'Agde airport",
@@ -382,20 +414,20 @@ rv2:"Sibylle was a fantastic host, friendly and helpful. The gîte is clean, exa
 rv3:"Lovingly furnished and very well equipped, nothing is missing. The view from the pool over the vineyards to the sea was a sight we enjoyed anew every day.",
 rv4:"A place to relax and to come back to. The garden with the pool felt like an extension of the house. Leaving was hard.",
 hand_prac:"Good to know",prac_h:"Practical info",p_arr:"Arrival & departure",p_arr1:"Check-in from 4 pm",p_arr2:"Check-out by 10 am",p_arr3:"Private parking in front of the house",
-p_inc:"Included",p_inc1:"Bed linen, towels, table linen",p_inc2:"Electricity, heating, Wi-Fi",p_inc3:"Final cleaning",p_note:"Please note",p_note1:"Sorry, no pets",p_note2:"Deposit €200",p_note3:"Sibylle speaks German, French and English",
+p_inc:"Included",p_inc1:"Bed linen, towels, table linen",p_inc2:"Electricity, heating, Wi-Fi",p_inc3:"Final cleaning",p_note:"Please note",p_note1:"Sorry, no pets",p_note2:"Deposit €200",p_note3:"Sibylle speaks German, French and English",p_note4:"Breakfast, lunch and dinner on request",
 hand_book:"À bientôt!",book_h:"Book your stay",book_p:"Available dates, prices and secure booking are on the Gîtes de France website.",book_price:"from €805 per week",book_cta2:"Go to Gîtes de France",gdf_label:"Approved by Gîtes de France · Ref. 34G062",
-hand_host:"Your host",host_p:"Questions about the house, getting here or day trips? Write or call me, I'm happy to help.",c_phone:"Phone",c_addr:"Address",c_map:"View on the map",foot:"Holiday home in Caussiniojouls, Hérault, Occitanie"},
-fr:{nav_welcome:"Bienvenue",nav_house:"La maison",nav_garden:"Jardin & piscine",nav_area:"Alentours",nav_reviews:"Avis",nav_contact:"Contact",book_short:"Réserver",
-lead:"Une maison en pierre décorée avec amour pour quatre personnes, avec jardin, piscine et vue sur les vignes jusqu'à la mer.",hand_hero:"Bienvenue chez nous !",book_cta:"Disponibilités & réservation",
+hand_host:"Your hosts",host_h:"Sibylle &amp; her husband",host_p:"Questions about the house, getting here or day trips? Write to Sibylle or give us a call, we're happy to help.",c_phone:"Phone",c_addr:"Address",c_map:"View on the map",foot:"Holiday home in Caussiniojouls, Hérault, Occitanie"},
+fr:{g_rev_h:"Avis Google",nav_welcome:"Bienvenue",nav_house:"La maison",nav_garden:"Jardin & piscine",nav_area:"Alentours",nav_reviews:"Avis",nav_contact:"Contact",book_short:"Réserver",
+cap:"Pour 4 à 6 personnes",lead:"Une maison en pierre de style campagne, nichée entre les vignes de l'appellation AOC Faugères. Avec jardin, piscine et vue sur les vignes jusqu'à la mer.",hand_hero:"Bienvenue chez nous !",book_cta:"Disponibilités & réservation",
 f_guests:"personnes",f_rooms:"chambres",f_pool:"m de piscine",f_rating:"avis des hôtes",hand_intro:"Bienvenue dans le Sud",intro_h:"Arriver et respirer",
-intro_p1:"Le gîte se trouve à Caussiniojouls, petit village au nord de Béziers, aux portes du Parc naturel régional du Haut-Languedoc. Il est situé sur le terrain de Sibylle, qui accueille ses hôtes chaleureusement et partage volontiers ses bonnes adresses.",
-intro_p2:"Murs en pierre, poutres en bois, tapis rouges et fleurs partout : ici, chaque détail est choisi avec soin. Linge de lit, serviettes, électricité, chauffage et ménage de fin de séjour sont inclus.",
+intro_p1:"Le gîte se trouve à Caussiniojouls, petit village au nord de Béziers, aux portes du Parc naturel régional du Haut-Languedoc. Il est situé sur le terrain de Sibylle et de son mari, qui accueillent leurs hôtes chaleureusement et partagent volontiers leurs bonnes adresses.",
+intro_p2:"La maison est décorée avec amour dans un style campagne aux touches marocaines : murs en pierre, poutres en bois, tapis rouges, lanternes et fleurs partout. Linge de lit, serviettes, électricité, chauffage et ménage de fin de séjour sont inclus.",
 hand_house:"88 m² pour se sentir bien",house_h:"La maison",house_p:"Au rez-de-chaussée, le séjour, la cuisine et la salle d'eau ; à l'étage, deux grandes chambres sous les poutres. Le rez-de-chaussée est climatisé.",
 ground:"Rez-de-chaussée",upper:"Étage",extras:"Sur demande",r_living:"Séjour",r_living_p:"Canapés confortables devant le vieux mur en pierre et un vidéoprojecteur avec des films pour les soirées.",
 r_kitchen:"Cuisine",r_kitchen_p:"Cuisine ouverte avec four, deux plaques, bouilloire, grille-pain et cafetière italienne.",r_bath:"Salle d'eau",r_bath_p:"Salle d'eau avec douche à l'italienne, lavabo et WC.",
 r_room1:"Chambre 1",r_room1_p:"20 m², lit 160 × 200 cm, tête de lit sculptée et coin lecture.",r_room2:"Chambre 2",r_room2_p:"20 m², lit à baldaquin 180 × 200 cm et un ancien secrétaire.",
-r_extra:"Pour les familles",r_extra_p:"Deux lits d'appoint, un lit parapluie et une chaise haute. Petit-déjeuner ou dîner chez Sibylle avec supplément.",
-hand_garden:"Dehors, le deuxième salon",garden_h:"Jardin & piscine",garden_p:"Un coin ombragé sous l'arbre devant la maison, une terrasse couverte avec grande table et barbecue, et une piscine partagée avec Sibylle.",
+r_extra:"Pour les familles",r_extra_p:"Deux lits d'appoint pour accueillir jusqu'à 6 personnes, un lit parapluie et une chaise haute.",
+hand_garden:"Dehors, le deuxième salon",garden_h:"Jardin & piscine",garden_p:"Un coin ombragé sous l'arbre devant la maison, une terrasse couverte avec grande table et barbecue, et une piscine partagée avec Sibylle et son mari.",hand_cook:"Bon appétit !",cook_h:"Sibylle cuisine pour vous sur demande",cook_p:"Petit-déjeuner, déjeuner ou dîner : Sibylle aime cuisiner pour ses hôtes. Sur demande et avec supplément.",
 pn_size:"piscine",pn_depth:"profondeur",pn_sea:"jusqu'à la Méditerranée",hand_area:"En pleine nature",area_h:"Les alentours",
 area_p:"Une voie cyclable passe devant la maison. Aux alentours : baignade en rivière, escalade, canyoning et accrobranche. Sans oublier les vins locaux.",
 onsite:"sur place",d_hike:"Sentiers de randonnée et GR",d_food:"Restaurant et vignoble",d_forest:"Forêt",d_shop:"Commerces, tennis",d_ride:"Équitation, médecin",d_town:"Gare de Bédarieux, cinéma, musées",d_beach:"Plages de la Méditerranée",d_air:"Aéroport Béziers Cap d'Agde",
@@ -405,9 +437,9 @@ rv2:"Sibylle a été une hôtesse fantastique, aimable et serviable. Le gîte es
 rv3:"Décoré avec amour et parfaitement équipé, il ne manque rien. La vue depuis la piscine sur les vignes jusqu'à la mer : un spectacle dont nous avons profité chaque jour.",
 rv4:"Un lieu pour se détendre et où l'on revient. Le jardin avec la piscine était comme un prolongement de la maison. Le départ a été difficile.",
 hand_prac:"Bon à savoir",prac_h:"Infos pratiques",p_arr:"Arrivée & départ",p_arr1:"Arrivée à partir de 16 h",p_arr2:"Départ avant 10 h",p_arr3:"Place de parking devant la maison",
-p_inc:"Inclus",p_inc1:"Linge de lit, serviettes, linge de table",p_inc2:"Électricité, chauffage, Wi-Fi",p_inc3:"Ménage de fin de séjour",p_note:"À noter",p_note1:"Animaux non admis",p_note2:"Caution 200 €",p_note3:"Sibylle parle français, allemand et anglais",
+p_inc:"Inclus",p_inc1:"Linge de lit, serviettes, linge de table",p_inc2:"Électricité, chauffage, Wi-Fi",p_inc3:"Ménage de fin de séjour",p_note:"À noter",p_note1:"Animaux non admis",p_note2:"Caution 200 €",p_note3:"Sibylle parle français, allemand et anglais",p_note4:"Petit-déjeuner, déjeuner et dîner sur demande",
 hand_book:"À bientôt !",book_h:"Réserver votre séjour",book_p:"Disponibilités, tarifs et réservation sécurisée sur le site Gîtes de France.",book_price:"à partir de 805 € la semaine",book_cta2:"Vers Gîtes de France",gdf_label:"Labellisé Gîtes de France · Réf. 34G062",
-hand_host:"Votre hôtesse",host_p:"Une question sur la maison, l'accès ou les excursions ? Écrivez-moi ou appelez-moi, je vous aide volontiers.",c_phone:"Téléphone",c_addr:"Adresse",c_map:"Voir sur la carte",foot:"Gîte à Caussiniojouls, Hérault, Occitanie"}
+hand_host:"Vos hôtes",host_h:"Sibylle &amp; son mari",host_p:"Une question sur la maison, l'accès ou les excursions ? Écrivez à Sibylle ou appelez-nous, nous vous aidons volontiers.",c_phone:"Téléphone",c_addr:"Adresse",c_map:"Voir sur la carte",foot:"Gîte à Caussiniojouls, Hérault, Occitanie"}
 };
 const nodes=[...document.querySelectorAll("[data-i18n]")];
 nodes.forEach(n=>n.dataset.de=n.innerHTML);
