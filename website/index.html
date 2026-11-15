@@ -84,7 +84,9 @@ section>.wrap{width:100%}
 .intro{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .intro p+p{margin-top:14px}
 .intro .text{max-width:60ch;min-width:0}
-.welcome-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;box-shadow:0 18px 40px -24px rgba(44,49,40,.45)}
+#willkommen .intro{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px}
+.welcome-img{max-width:none;--bleed:calc(max(0px,(100vw - 1160px)/2) + var(--gutter-r));width:calc(100% + var(--bleed));margin-right:calc(-1 * var(--bleed));height:min(calc(var(--screen) - 96px),780px);min-height:460px;object-fit:cover;border-radius:6px 0 0 6px;box-shadow:0 18px 40px -24px rgba(44,49,40,.45)}
+@media (max-width:820px){#willkommen .intro{grid-template-columns:1fr;gap:32px}.welcome-img{--bleed:var(--gutter-r);width:calc(100% + var(--gutter-l) + var(--gutter-r));margin-left:calc(-1 * var(--gutter-l));height:62svh;min-height:340px;border-radius:0}}
 .pc{background:#fff;padding:10px 10px 34px;box-shadow:0 10px 26px -14px rgba(44,49,40,.5);position:absolute;transition:transform .35s}
 .pc img{width:100%;height:100%;object-fit:cover}
 .pc figcaption{position:absolute;left:0;right:0;bottom:6px;text-align:center;font-family:var(--hand);font-size:1.2rem;color:var(--sage-deep)}
@@ -95,15 +97,23 @@ section>.wrap{width:100%}
 @media (max-width:820px){.intro{grid-template-columns:1fr}}
 
 .band{background:var(--sage-pale)}
-.house{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
-.room{background:#fff;border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
-.room img{aspect-ratio:4/3;object-fit:cover;width:100%}
-.room div{padding:18px 20px 22px;display:flex;flex-direction:column;gap:6px}
+.house-sl{margin-top:34px}
+.track.rooms{gap:0}
+.room{flex:0 0 100%;scroll-snap-align:start;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);background:#fff;border-radius:6px;overflow:hidden;height:clamp(340px,calc(var(--screen) - 300px),540px);grid-template-rows:100%}
+.room img{min-height:0}
+.room img{width:100%;height:100%;object-fit:cover;display:block}
+.room .room-txt{padding:clamp(24px,4vw,56px);display:flex;flex-direction:column;justify-content:center;gap:10px}
+.room .count{font-family:var(--hand);font-size:1.3rem;color:var(--lavender)}
+.room h3{font-size:clamp(1.5rem,2.4vw,2rem)}
 .room h3{color:var(--sage-deep)}
-.room p{font-size:.95rem}
+.room p{font-size:1.02rem}
 .floorline{display:flex;gap:10px;align-items:center;margin-top:8px;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage)}
-@media (max-width:900px){.house{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){.house{grid-template-columns:1fr}}
+@media (max-width:760px){.room{grid-template-columns:1fr;grid-template-rows:auto;height:auto}.room img{aspect-ratio:4/3;height:auto}.room .room-txt{padding:22px 20px 26px}}
+.sl-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:18px}
+.house-sl .sl-btn{position:static;transform:none}
+.dots{display:flex;gap:8px}
+.dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:var(--line);cursor:pointer}
+.dots button[aria-current="true"]{background:var(--lavender);transform:scale(1.25)}
 .headrow{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
 .headrow p{max-width:52ch}
 
@@ -111,11 +121,11 @@ section>.wrap{width:100%}
 .slides{position:relative;margin-top:36px}
 .track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding-bottom:4px}
 .track::-webkit-scrollbar{display:none}
-.track img{flex:0 0 auto;height:clamp(300px,58vh,540px);width:auto;max-width:100%;object-fit:cover;border-radius:4px;scroll-snap-align:start}
+.track>img{flex:0 0 auto;height:clamp(300px,58vh,540px);width:auto;max-width:100%;object-fit:cover;border-radius:4px;scroll-snap-align:start}
 .sl-btn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--lavender);font-size:1.2rem;cursor:pointer;box-shadow:0 8px 20px -10px rgba(0,0,0,.5)}
 .sl-btn:hover{background:var(--lavender);color:#fff}
 .sl-btn.prev{left:10px}.sl-btn.next{right:10px}
-@media (max-width:600px){.track img{height:340px}}
+@media (max-width:600px){.track>img{height:340px}}
 .pool-note{margin-top:44px;display:flex;gap:30px;flex-wrap:wrap;align-items:center;justify-content:center;text-align:center}
 .pool-note div{min-width:120px}
 .pool-note b{display:block;font-family:var(--display);font-weight:400;font-size:2rem;color:var(--sage-deep)}
@@ -189,36 +199,38 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
 .ti-holder .ti-widget .ti-controls .ti-next:before,.ti-holder .ti-widget .ti-controls .ti-prev:before,.ti-holder .ti-widget .ti-controls .ti-next:after,.ti-holder .ti-widget .ti-controls .ti-prev:after{background-color:#fff!important;border-color:#fff!important}
 .ti-holder .ti-widget .ti-review-item .ti-stars .ti-star{filter:none}
 /* surroundings map */
-.surround{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:start;margin-top:30px}
-.mapfig{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
-.map{width:100%;display:block;border-radius:6px;box-shadow:0 18px 40px -26px rgba(44,49,40,.5)}
-.map .land{fill:#EEF1E7}
-.map .sea{fill:#BFD0DC}
-.map .sea-t{font-family:var(--hand);font-size:20px;fill:#4F6A82}
-.map .ring{fill:none;stroke:var(--sage);stroke-width:1;stroke-dasharray:3 5;opacity:.9}
-.map .ring-t{font:600 10px var(--body);fill:var(--sage)}
-.map .n{font:600 12px var(--body);fill:var(--sage-deep)}
-.map .n-ar{stroke:var(--sage-deep);stroke-width:1.5;fill:none}
-.map .pt{stroke:#fff;stroke-width:2}
-.map .pt.city,.dot.city{fill:var(--sage-deep);background:var(--sage-deep)}
-.map .pt.water,.dot.water{fill:#4F7FA8;background:#4F7FA8}
-.map .pt.art,.dot.art{fill:var(--lavender);background:var(--lavender)}
-.map .pt-t{font:500 11.5px var(--body);fill:var(--ink);paint-order:stroke;stroke:#EEF1E7;stroke-width:3px}
-.map .home circle{fill:var(--clay)}
-.map .home path{fill:#fff}
-.map .home-t{font-family:var(--hand);font-size:18px;fill:var(--clay);paint-order:stroke;stroke:#EEF1E7;stroke-width:3px}
-.mapfig figcaption{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.82rem;color:var(--sage-deep)}
-.lg{display:inline-flex;align-items:center;gap:6px}
-.dot{display:inline-block;width:10px;height:10px;border-radius:50%}
-.lg.note{margin-left:auto;font-style:italic}
-.cats{display:grid;grid-template-columns:1fr 1fr;gap:22px 26px;min-width:0}
-.cats .signs{margin-top:10px;gap:6px}
-.cats .signs li{grid-template-columns:72px 1fr;font-size:.92rem;gap:10px}
-.cat{font-size:.9rem;display:flex;align-items:center;gap:8px;color:var(--sage-deep)}
-.cat::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--sage-deep)}
-.cat.water::before{background:#4F7FA8}.cat.art::before{background:var(--lavender)}.cat.sport::before{background:var(--clay)}
-@media (max-width:900px){.surround{grid-template-columns:1fr}}
-@media (max-width:480px){.cats{grid-template-columns:1fr}}
+.surround{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:center;margin-top:36px}
+.mapfig{margin:0;min-width:0}
+.map{width:100%;display:block;border-radius:8px;box-shadow:0 18px 40px -26px rgba(44,49,40,.5)}
+.map .land{fill:#EEF1E7}.map .sea{fill:#C9D8E2}
+.map .sea-t{font-family:var(--hand);font-size:20px;fill:#5D7890}
+.map .ring{fill:none;stroke:var(--sage);stroke-width:1;stroke-dasharray:2 6;opacity:.7}
+.map .ring-t{font:600 10px var(--body);fill:var(--sage);opacity:.8;paint-order:stroke;stroke:#EEF1E7;stroke-width:4px}
+.map .pt circle{fill:#B9C2AE;stroke:#fff;stroke-width:2;transition:r .2s,fill .2s,opacity .2s;opacity:.55}
+.map .pt text{font:600 12.5px var(--body);fill:var(--ink);paint-order:stroke;stroke:#fff;stroke-width:5px;stroke-linejoin:round;opacity:0;transition:opacity .2s;pointer-events:none}
+.surround[data-c="city"] .pt.city circle{fill:var(--sage-deep);opacity:1}
+.surround[data-c="water"] .pt.water circle{fill:#4F7FA8;opacity:1}
+.surround[data-c="art"] .pt.art circle{fill:var(--lavender);opacity:1}
+.map .pt.on circle{r:9}.map .pt.on text{opacity:1}
+.map .home circle{fill:var(--clay)}.map .home path{fill:#fff}
+.map .home-t{font-family:var(--hand);font-size:17px;fill:var(--clay);paint-order:stroke;stroke:#EEF1E7;stroke-width:4px}
+.map .home .halo{fill:var(--clay);opacity:0;transform-origin:center;transition:opacity .25s}
+.map .home.on .halo{opacity:.22}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.tab{font:500 .88rem var(--body);border:1px solid var(--sage);background:transparent;color:var(--sage-deep);border-radius:999px;padding:7px 14px;cursor:pointer;transition:background .2s,color .2s}
+.tab:hover{background:#EEF1E7}
+.tab[aria-selected="true"]{background:var(--sage-deep);border-color:var(--sage-deep);color:#fff}
+.tab.water[aria-selected="true"]{background:#4F7FA8;border-color:#4F7FA8}
+.tab.art[aria-selected="true"],.tab.sport[aria-selected="true"]{background:var(--lavender);border-color:var(--lavender)}
+.places{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.places li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 10px;border-bottom:1px solid var(--line);cursor:default;border-radius:4px;transition:background .15s}
+.places li:hover,.places li:focus,.places li.on{background:#EEF1E7;outline:none}
+.places .nm{font-size:1rem}
+.places .km{font-variant-numeric:tabular-nums;font-size:.85rem;font-weight:600;color:var(--sage-deep);white-space:nowrap}
+.places .km.here{color:var(--lavender)}
+.explore{min-height:340px}
+.map-note{margin-top:14px;font-size:.8rem;font-style:italic;color:var(--sage-deep)}
+@media (max-width:900px){.surround{grid-template-columns:1fr;gap:24px}.explore{min-height:0}}
 </style>
 </head>
 <body>
@@ -283,13 +295,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
         <div><span class="hand eyebrow" data-i18n="hand_house">88 m² zum Wohlfühlen</span><h2 data-i18n="house_h">Das Haus</h2></div>
         <p data-i18n="house_p">Unten wohnen, kochen und essen, oben zwei große Schlafzimmer unter den Holzbalken. Das Erdgeschoss ist klimatisiert.</p>
       </div>
-      <div class="house">
-        <article class="room"><img src="img/wohnen.jpg" alt="Wohnzimmer mit Steinwand und Sofas" loading="lazy"><div><span class="floorline" data-i18n="ground">Erdgeschoss</span><h3 data-i18n="r_living">Wohnzimmer</h3><p data-i18n="r_living_p">Gemütliche Sofas vor der alten Steinwand, dazu ein Beamer mit Filmen für die Abende.</p></div></article>
-        <article class="room"><img src="img/kueche.jpg" alt="Grüne Küche mit Blumentapete" loading="lazy"><div><span class="floorline" data-i18n="ground">Erdgeschoss</span><h3 data-i18n="r_kitchen">Küche</h3><p data-i18n="r_kitchen_p">Offene Küche mit Backofen, zwei Kochplatten, Wasserkocher, Toaster und italienischer Kaffeekanne.</p></div></article>
-        <article class="room"><img src="img/bad.jpg" alt="Duschbad in warmen Gelbtönen" loading="lazy"><div><span class="floorline" data-i18n="ground">Erdgeschoss</span><h3 data-i18n="r_bath">Duschbad</h3><p data-i18n="r_bath_p">Bad mit offener Dusche, Waschbecken und WC.</p></div></article>
-        <article class="room"><img src="img/zimmer1.jpg" alt="Schlafzimmer mit geschnitztem Kopfteil" loading="lazy"><div><span class="floorline" data-i18n="upper">Obergeschoss</span><h3 data-i18n="r_room1">Schlafzimmer 1</h3><p data-i18n="r_room1_p">20 m², Doppelbett 160 × 200 cm, mit geschnitztem Kopfteil und Leseecke.</p></div></article>
-        <article class="room"><img src="img/zimmer2.jpg" alt="Schlafzimmer mit Himmelbett" loading="lazy"><div><span class="floorline" data-i18n="upper">Obergeschoss</span><h3 data-i18n="r_room2">Schlafzimmer 2</h3><p data-i18n="r_room2_p">20 m², Himmelbett 180 × 200 cm und ein alter Sekretär.</p></div></article>
-        <article class="room"><img src="img/essen.jpg" alt="Essplatz mit Blick in den Garten" loading="lazy"><div><span class="floorline" data-i18n="extras">Auf Anfrage</span><h3 data-i18n="r_extra">Für Familien</h3><p data-i18n="r_extra_p">Zwei Zustellbetten für bis zu 6 Personen, dazu Babybett und Hochstuhl.</p></div></article>
+      <div class="slides house-sl">
+        <div class="track rooms" tabindex="0" aria-roledescription="Bildergalerie">
+          <article class="room"><img src="img/wohnen.jpg" alt="Wohnzimmer mit Steinwand und Sofas" loading="lazy"><div class="room-txt"><span class="count">1 / 6</span><span class="floorline" data-i18n="ground">Erdgeschoss</span><h3 data-i18n="r_living">Wohnzimmer</h3><p data-i18n="r_living_p">Gemütliche Sofas vor der alten Steinwand, dazu ein Beamer mit Filmen für die Abende.</p></div></article>
+          <article class="room"><img src="img/kueche.jpg" alt="Grüne Küche mit Blumentapete" loading="lazy"><div class="room-txt"><span class="count">2 / 6</span><span class="floorline" data-i18n="ground">Erdgeschoss</span><h3 data-i18n="r_kitchen">Küche</h3><p data-i18n="r_kitchen_p">Offene Küche mit Backofen, zwei Kochplatten, Wasserkocher, Toaster und italienischer Kaffeekanne.</p></div></article>
+          <article class="room"><img src="img/bad.jpg" alt="Duschbad in warmen Gelbtönen" loading="lazy"><div class="room-txt"><span class="count">3 / 6</span><span class="floorline" data-i18n="ground">Erdgeschoss</span><h3 data-i18n="r_bath">Duschbad</h3><p data-i18n="r_bath_p">Bad mit offener Dusche, Waschbecken und WC.</p></div></article>
+          <article class="room"><img src="img/zimmer1.jpg" alt="Schlafzimmer mit geschnitztem Kopfteil" loading="lazy"><div class="room-txt"><span class="count">4 / 6</span><span class="floorline" data-i18n="upper">Obergeschoss</span><h3 data-i18n="r_room1">Schlafzimmer 1</h3><p data-i18n="r_room1_p">20 m², Doppelbett 160 × 200 cm, mit geschnitztem Kopfteil und Leseecke.</p></div></article>
+          <article class="room"><img src="img/zimmer2.jpg" alt="Schlafzimmer mit Himmelbett" loading="lazy"><div class="room-txt"><span class="count">5 / 6</span><span class="floorline" data-i18n="upper">Obergeschoss</span><h3 data-i18n="r_room2">Schlafzimmer 2</h3><p data-i18n="r_room2_p">20 m², Himmelbett 180 × 200 cm und ein alter Sekretär.</p></div></article>
+          <article class="room"><img src="img/essen.jpg" alt="Essplatz mit Blick in den Garten" loading="lazy"><div class="room-txt"><span class="count">6 / 6</span><span class="floorline" data-i18n="extras">Auf Anfrage</span><h3 data-i18n="r_extra">Für Familien</h3><p data-i18n="r_extra_p">Zwei Zustellbetten für bis zu 6 Personen, dazu Babybett und Hochstuhl.</p></div></article>
+        </div>
+        <div class="sl-nav"><button type="button" class="sl-btn prev" aria-label="Vorheriges Bild">←</button><div class="dots"></div><button type="button" class="sl-btn next" aria-label="Nächstes Bild">→</button></div>
       </div>
     </div>
   </section>
@@ -330,13 +345,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
         <div><span class="hand eyebrow" data-i18n="hand_area">Raus in die Natur</span><h2 data-i18n="area_h">Die Umgebung</h2></div>
         <p data-i18n="area_p">Zwischen Weinbergen, Flüssen und Meer: Städte, Strände und Museen sind in kurzer Fahrt erreichbar, Wanderwege beginnen direkt an der Haustür.</p>
       </div>
-      <div class="surround">
-        <figure class="mapfig"><svg class="map" viewBox="0 0 500 340" role="img" aria-label="Karte der Ausflugsziele rund um Caussiniojouls"><defs><clipPath id="mclip"><rect width="500" height="340" rx="6"/></clipPath></defs><g clip-path="url(#mclip)"><rect class="land" width="500" height="340"/><path class="sea" d="M0 340 L0 330 L180 312 L228 302 L272 288 L300 278 L352 234 L400 192 L428 172 L500 148 L500 340 Z"/><text class="sea-t" x="330" y="318" text-anchor="middle">Méditerranée</text><circle class="ring" cx="180" cy="160" r="40"/><circle class="ring" cx="180" cy="160" r="80"/><circle class="ring" cx="180" cy="160" r="160"/><circle class="ring" cx="180" cy="160" r="240"/><text class="ring-t" x="150" y="129" text-anchor="end">10 km</text><text class="ring-t" x="121" y="100" text-anchor="end">20 km</text><text class="ring-t" x="65" y="44" text-anchor="end">40 km</text><text class="ring-t" x="8" y="-13" text-anchor="end">60 km</text><text class="n" x="22" y="24" text-anchor="middle">N</text><path class="n-ar" d="M22 30 L22 46 M17 36 L22 30 L27 36"/><circle class="pt city" cx="200" cy="252" r="5"/><text class="pt-t" x="208" y="256" text-anchor="start">Béziers</text><circle class="pt city" cx="267" cy="201" r="5"/><text class="pt-t" x="275" y="205" text-anchor="start">Pézenas</text><circle class="pt city" cx="354" cy="226" r="5"/><text class="pt-t" x="362" y="230" text-anchor="start">Sète</text><circle class="pt water" cx="224" cy="294" r="5"/><text class="pt-t" x="216" y="306" text-anchor="end">Valras-Plage</text><circle class="pt water" cx="237" cy="288" r="5"/><text class="pt-t" x="245" y="298" text-anchor="start">Sérignan Plage</text><circle class="pt water" cx="274" cy="278" r="5"/><text class="pt-t" x="282" y="272" text-anchor="start">Le Grau d'Agde</text><circle class="pt water" cx="126" cy="182" r="5"/><text class="pt-t" x="118" y="186" text-anchor="end">Orb (Kanu)</text><circle class="pt water" cx="246" cy="118" r="5"/><text class="pt-t" x="254" y="122" text-anchor="start">Lac du Salagou</text><circle class="pt art" cx="233" cy="80" r="5"/><text class="pt-t" x="241" y="84" text-anchor="start">Musée de Lodève</text><circle class="pt art" cx="220" cy="280" r="5"/><text class="pt-t" x="212" y="278" text-anchor="end">MRAC Sérignan</text><circle class="pt art" cx="414" cy="133" r="5"/><text class="pt-t" x="414" y="122" text-anchor="middle">Musée Fabre · Montpellier</text><g class="home" transform="translate(180 160)"><circle r="13"/><path d="M-6 3 L-6 -2 L0 -7 L6 -2 L6 3 Z"/></g><text class="home-t" x="180" y="190" text-anchor="middle">Gîte de la Calade</text></g></svg><figcaption><span class="lg"><i class="dot city"></i><span data-i18n="cat_city">Städtebummel</span></span><span class="lg"><i class="dot water"></i><span data-i18n="cat_water">Am Wasser</span></span><span class="lg"><i class="dot art"></i><span data-i18n="cat_art">Kunst</span></span><span class="lg note" data-i18n="map_note">Entfernungen in Luftlinie, ungefähr</span></figcaption></figure>
-        <div class="cats">
-          <div><h3 class="cat city" data-i18n="cat_city">Städtebummel</h3><ul class="signs"><li><span class="km">23 km</span><span>Béziers</span></li><li><span class="km">24 km</span><span>Pézenas</span></li><li><span class="km">46 km</span><span>Sète</span></li></ul></div>
-          <div><h3 class="cat water" data-i18n="cat_water">Am Wasser</h3><ul class="signs"><li><span class="km">15 km</span><span data-i18n="w_orb">Kanufahrten auf dem Orb</span></li><li><span class="km">20 km</span><span>Lac du Salagou</span></li><li><span class="km">35 km</span><span>Valras-Plage</span></li><li><span class="km">35 km</span><span>Sérignan Plage</span></li><li><span class="km">38 km</span><span>Le Grau d'Agde</span></li></ul></div>
-          <div><h3 class="cat art" data-i18n="cat_art">Kunst</h3><ul class="signs"><li><span class="km">24 km</span><span>Musée de Lodève</span></li><li><span class="km">32 km</span><span data-i18n="a_mrac">MRAC Sérignan</span></li><li><span class="km">59 km</span><span>Musée Fabre, Montpellier</span></li></ul></div>
-          <div><h3 class="cat sport" data-i18n="cat_sport">Sport</h3><ul class="signs"><li><span class="km here" data-i18n="near">fast vor Ort</span><span data-i18n="s_bike">Voie verte: Radweg fast am Haus vorbei</span></li><li><span class="km here" data-i18n="onsite">vor Ort</span><span data-i18n="s_run">Wandern und Joggen ab Haustür</span></li><li><span class="km">5 km</span><span>Tennis</span></li></ul></div>
+      <div class="surround" id="surround" data-c="city">
+        <figure class="mapfig"><svg class="map" viewBox="0 0 500 340" role="img" aria-label="Karte der Ausflugsziele rund um Caussiniojouls"><defs><clipPath id="mclip"><rect width="500" height="340" rx="6"/></clipPath></defs><g clip-path="url(#mclip)"><rect class="land" width="500" height="340"/><path class="sea" d="M0 340 L0 330 L180 312 L228 302 L272 288 L300 278 L352 234 L400 192 L428 172 L500 148 L500 340 Z"/><text class="sea-t" x="390" y="300" text-anchor="middle">Méditerranée</text><circle class="ring" cx="180" cy="160" r="80"/><circle class="ring" cx="180" cy="160" r="160"/><text class="ring-t" x="180" y="74" text-anchor="middle">20 km</text><text class="ring-t" x="68" y="276" text-anchor="middle">40 km</text><g class="pt city" data-p="beziers"><circle cx="200" cy="252" r="5"/><text x="212" y="257" text-anchor="start">Béziers</text></g><g class="pt city" data-p="pezenas"><circle cx="267" cy="201" r="5"/><text x="279" y="206" text-anchor="start">Pézenas</text></g><g class="pt city" data-p="sete"><circle cx="354" cy="226" r="5"/><text x="366" y="231" text-anchor="start">Sète</text></g><g class="pt water" data-p="orb"><circle cx="126" cy="182" r="5"/><text x="114" y="187" text-anchor="end">Orb</text></g><g class="pt water" data-p="salagou"><circle cx="246" cy="118" r="5"/><text x="258" y="123" text-anchor="start">Lac du Salagou</text></g><g class="pt water" data-p="valras"><circle cx="224" cy="294" r="5"/><text x="212" y="299" text-anchor="end">Valras-Plage</text></g><g class="pt water" data-p="serignan"><circle cx="237" cy="288" r="5"/><text x="249" y="293" text-anchor="start">Sérignan Plage</text></g><g class="pt water" data-p="agde"><circle cx="274" cy="278" r="5"/><text x="286" y="283" text-anchor="start">Le Grau d'Agde</text></g><g class="pt art" data-p="lodeve"><circle cx="233" cy="80" r="5"/><text x="245" y="85" text-anchor="start">Musée de Lodève</text></g><g class="pt art" data-p="mrac"><circle cx="220" cy="280" r="5"/><text x="208" y="285" text-anchor="end">MRAC Sérignan</text></g><g class="pt art" data-p="fabre"><circle cx="414" cy="133" r="5"/><text x="414" y="119" text-anchor="middle">Musée Fabre</text></g><g class="home" data-p="home" transform="translate(180 160)"><circle class="halo" r="22"/><circle r="13"/><path d="M-6 3 L-6 -2 L0 -7 L6 -2 L6 3 Z"/></g><text class="home-t" x="180" y="194" text-anchor="middle">Gîte de la Calade</text></g></svg></figure>
+        <div class="explore">
+          <div class="tabs" role="tablist"><button type="button" role="tab" class="tab city" data-c="city" aria-selected="true" data-i18n="cat_city">Städtebummel</button><button type="button" role="tab" class="tab water" data-c="water" aria-selected="false" data-i18n="cat_water">Am Wasser</button><button type="button" role="tab" class="tab art" data-c="art" aria-selected="false" data-i18n="cat_art">Kunst</button><button type="button" role="tab" class="tab sport" data-c="sport" aria-selected="false" data-i18n="cat_sport">Sport</button></div>
+          <ul class="places" data-c="city"><li tabindex="0" data-p="beziers"><span class="nm">Béziers</span><span class="km">23 km</span></li><li tabindex="0" data-p="pezenas"><span class="nm">Pézenas</span><span class="km">24 km</span></li><li tabindex="0" data-p="sete"><span class="nm">Sète</span><span class="km">46 km</span></li></ul><ul class="places" data-c="water" hidden><li tabindex="0" data-p="orb"><span class="nm" data-i18n="w_orb">Kanufahrten auf dem Orb</span><span class="km">15 km</span></li><li tabindex="0" data-p="salagou"><span class="nm">Lac du Salagou</span><span class="km">20 km</span></li><li tabindex="0" data-p="valras"><span class="nm">Valras-Plage</span><span class="km">35 km</span></li><li tabindex="0" data-p="serignan"><span class="nm">Sérignan Plage</span><span class="km">35 km</span></li><li tabindex="0" data-p="agde"><span class="nm">Le Grau d'Agde</span><span class="km">38 km</span></li></ul><ul class="places" data-c="art" hidden><li tabindex="0" data-p="lodeve"><span class="nm">Musée de Lodève</span><span class="km">24 km</span></li><li tabindex="0" data-p="mrac"><span class="nm" data-i18n="a_mrac">MRAC Sérignan</span><span class="km">32 km</span></li><li tabindex="0" data-p="fabre"><span class="nm">Musée Fabre, Montpellier</span><span class="km">59 km</span></li></ul><ul class="places" data-c="sport" hidden><li tabindex="0" data-p="home"><span class="nm" data-i18n="s_bike">Voie verte: Radweg fast am Haus vorbei</span><span class="km here" data-i18n="near">fast vor Ort</span></li><li tabindex="0" data-p="home"><span class="nm" data-i18n="s_run">Wandern und Joggen</span><span class="km here" data-i18n="onsite2">ab Haustür</span></li><li tabindex="0" data-p="home"><span class="nm">Tennis</span><span class="km">5 km</span></li></ul>
+          <p class="map-note" data-i18n="map_note">Entfernungen in Luftlinie, ungefähr</p>
         </div>
       </div>
     </div>
@@ -402,7 +416,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
 
 <script>
 const T={
-en:{cat_city:"City strolls",cat_water:"By the water",cat_art:"Art",cat_sport:"Sport",map_note:"Distances as the crow flies, approximate",w_orb:"Canoeing on the Orb",a_mrac:"MRAC Sérignan (contemporary art)",near:"nearby",s_bike:"Voie verte: cycle path passing close to the house",s_run:"Hiking and jogging from the front door",g_rev_h:"Reviews on Google",nav_welcome:"Welcome",nav_house:"The house",nav_garden:"Garden & pool",nav_area:"Surroundings",nav_reviews:"Reviews",nav_contact:"Contact",book_short:"Book",
+en:{cat_city:"City strolls",cat_water:"By the water",cat_art:"Art",cat_sport:"Sport",map_note:"Distances as the crow flies, approximate",w_orb:"Canoeing on the Orb",a_mrac:"MRAC Sérignan (contemporary art)",near:"nearby",s_bike:"Voie verte: cycle path passing close to the house",s_run:"Hiking and jogging",onsite2:"from the door",g_rev_h:"Reviews on Google",nav_welcome:"Welcome",nav_house:"The house",nav_garden:"Garden & pool",nav_area:"Surroundings",nav_reviews:"Reviews",nav_contact:"Contact",book_short:"Book",
 cap:"For 4 to 6 guests",lead:"A country-style stone house nestled among the vines of the AOC Faugères wine region. With a garden, a pool and views over the vineyards all the way to the sea.",hand_hero:"Bienvenue chez nous!",book_cta:"Availability & booking",
 f_guests:"guests",f_rooms:"bedrooms",f_pool:"m pool",f_rating:"guest rating",hand_intro:"Welcome to the south",intro_h:"Arrive and breathe",
 intro_p1:"The gîte is in Caussiniojouls, a small village north of Béziers on the edge of the Haut-Languedoc nature park. It stands on the grounds of Sibylle and her husband, who welcome their guests warmly and are happy to share tips for the area.",
@@ -425,7 +439,7 @@ hand_prac:"Good to know",prac_h:"Practical info",p_arr:"Arrival & departure",p_a
 p_inc:"Included",p_inc1:"Bed linen, towels, table linen",p_inc2:"Electricity, heating, Wi-Fi",p_inc3:"Final cleaning",p_note:"Please note",p_note1:"Sorry, no pets",p_note2:"Deposit €200",p_note3:"Sibylle speaks German, French and English",p_note4:"On request Sibylle cooks for you: breakfast, lunch or dinner (at extra cost)",
 hand_book:"À bientôt!",book_h:"Book your stay",book_p:"Available dates, prices and secure booking are on the Gîtes de France website.",book_price:"from €805 per week",book_cta2:"Go to Gîtes de France",gdf_label:"Approved by Gîtes de France · Ref. 34G062",
 hand_host:"Your hosts",host_h:"Sibylle &amp; her husband",host_p:"Questions about the house, getting here or day trips? Write to Sibylle or give us a call, we're happy to help.",c_phone:"Phone",c_addr:"Address",c_map:"View on the map",foot:"Holiday home in Caussiniojouls, Hérault, Occitanie"},
-fr:{cat_city:"Balades en ville",cat_water:"Au bord de l'eau",cat_art:"Art",cat_sport:"Sport",map_note:"Distances à vol d'oiseau, approximatives",w_orb:"Canoë sur l'Orb",a_mrac:"MRAC Sérignan (art contemporain)",near:"tout près",s_bike:"Voie verte : piste cyclable qui passe presque devant la maison",s_run:"Randonnée et jogging depuis la porte",g_rev_h:"Avis Google",nav_welcome:"Bienvenue",nav_house:"La maison",nav_garden:"Jardin & piscine",nav_area:"Alentours",nav_reviews:"Avis",nav_contact:"Contact",book_short:"Réserver",
+fr:{cat_city:"Balades en ville",cat_water:"Au bord de l'eau",cat_art:"Art",cat_sport:"Sport",map_note:"Distances à vol d'oiseau, approximatives",w_orb:"Canoë sur l'Orb",a_mrac:"MRAC Sérignan (art contemporain)",near:"tout près",s_bike:"Voie verte : piste cyclable qui passe presque devant la maison",s_run:"Randonnée et jogging",onsite2:"depuis la porte",g_rev_h:"Avis Google",nav_welcome:"Bienvenue",nav_house:"La maison",nav_garden:"Jardin & piscine",nav_area:"Alentours",nav_reviews:"Avis",nav_contact:"Contact",book_short:"Réserver",
 cap:"Pour 4 à 6 personnes",lead:"Une maison en pierre de style campagne, nichée entre les vignes de l'appellation AOC Faugères. Avec jardin, piscine et vue sur les vignes jusqu'à la mer.",hand_hero:"Bienvenue chez nous !",book_cta:"Disponibilités & réservation",
 f_guests:"personnes",f_rooms:"chambres",f_pool:"m de piscine",f_rating:"avis des hôtes",hand_intro:"Bienvenue dans le Sud",intro_h:"Arriver et respirer",
 intro_p1:"Le gîte se trouve à Caussiniojouls, petit village au nord de Béziers, aux portes du Parc naturel régional du Haut-Languedoc. Il est situé sur le terrain de Sibylle et de son mari, qui accueillent leurs hôtes chaleureusement et partagent volontiers leurs bonnes adresses.",
@@ -468,6 +482,25 @@ if(tr){const step=d=>{const w=tr.clientWidth*0.8;const end=tr.scrollLeft+tr.clie
  document.getElementById('sl-prev').addEventListener('click',()=>step(-1));
  document.getElementById('sl-next').addEventListener('click',()=>step(1));
  tr.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();step(1)}if(e.key==='ArrowLeft'){e.preventDefault();step(-1)}});}
+const sur=document.getElementById('surround');
+if(sur){const pts=[...sur.querySelectorAll('.map [data-p]')];
+ const hi=id=>{pts.forEach(g=>g.classList.toggle('on',g.dataset.p===id));sur.querySelectorAll('.places li').forEach(l=>l.classList.toggle('on',!!id&&l.dataset.p===id&&l.matches(':hover,:focus,.tap')));};
+ sur.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{const c=t.dataset.c;sur.dataset.c=c;
+  sur.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));
+  sur.querySelectorAll('.places').forEach(u=>u.hidden=u.dataset.c!==c);hi(null);}));
+ sur.querySelectorAll('.places li').forEach(l=>{
+  l.addEventListener('mouseenter',()=>hi(l.dataset.p));l.addEventListener('mouseleave',()=>hi(null));
+  l.addEventListener('focus',()=>hi(l.dataset.p));l.addEventListener('blur',()=>hi(null));
+  l.addEventListener('click',()=>{sur.querySelectorAll('.places li').forEach(x=>x.classList.remove('tap'));l.classList.add('tap');hi(l.dataset.p);});});
+ pts.forEach(g=>{if(g.dataset.p==='home')return;g.addEventListener('mouseenter',()=>g.classList.add('on'));g.addEventListener('mouseleave',()=>g.classList.remove('on'));});}
+document.querySelectorAll('.house-sl').forEach(sl=>{const t=sl.querySelector('.track'),items=[...t.children],dots=sl.querySelector('.dots');
+ items.forEach((_,i)=>{const d=document.createElement('button');d.type='button';d.setAttribute('aria-label',(i+1)+' / '+items.length);d.addEventListener('click',()=>go(i));dots.appendChild(d)});
+ const cur=()=>Math.round(t.scrollLeft/t.clientWidth);
+ const go=i=>{i=(i+items.length)%items.length;t.scrollTo({left:i*t.clientWidth,behavior:'smooth'})};
+ const mark=()=>[...dots.children].forEach((d,i)=>d.setAttribute('aria-current',i===cur()));
+ t.addEventListener('scroll',()=>{clearTimeout(t._m);t._m=setTimeout(mark,60)});mark();
+ sl.querySelector('.prev').addEventListener('click',()=>go(cur()-1));sl.querySelector('.next').addEventListener('click',()=>go(cur()+1));
+ t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(cur()+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(cur()-1)}});});
 </script>
 
 </body>
