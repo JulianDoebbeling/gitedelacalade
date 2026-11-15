@@ -344,7 +344,7 @@ section{padding-block:var(--pad)}
   .book .wrap{gap:12px}
 }
 @media (max-width:820px) and (max-height:700px){
-  #haus .headrow p,#umgebung .headrow p,#garten .headrow p{display:none}
+  #haus .headrow p,#umgebung .headrow p{display:none}
 }
 /* very short screens (phone in landscape): fall back to natural height */
 @media (max-height:520px){
@@ -440,7 +440,7 @@ section{padding-block:var(--pad)}
     <div class="wrap">
       <div class="headrow">
         <div><span class="hand eyebrow" data-i18n="hand_garden">Draußen ist das zweite Wohnzimmer</span><h2 data-i18n="garden_h">Garten &amp; Pool</h2></div>
-        <p data-i18n="garden_p">Ein schattiger Platz unter dem Baum vor dem Haus, eine überdachte Terrasse mit großem Tisch und Grill und ein Pool, den sich die Gäste mit Sibylle und ihrem Mann teilen.</p>
+        <p data-i18n="garden_p">Ein schattiger Platz unter dem Baum vor dem Haus, eine überdachte Terrasse mit großem Tisch und Grill und ein Pool von 10 × 5 m (1 bis 2,5 m tief), den sich die Gäste mit Sibylle und ihrem Mann teilen. Vom Pool reicht der Blick bis zum rund 40 km entfernten Mittelmeer.</p>
       </div>
       <div class="slides" id="slides" aria-roledescription="Bildergalerie">
         <div class="track" id="track" tabindex="0">
@@ -457,11 +457,6 @@ section{padding-block:var(--pad)}
         </div>
         <button type="button" class="sl-btn prev" id="sl-prev" aria-label="Vorheriges Bild">←</button>
         <button type="button" class="sl-btn next" id="sl-next" aria-label="Nächstes Bild">→</button>
-      </div>
-      <div class="pool-note">
-        <div><b>10 × 5 m</b><small data-i18n="pn_size">Pool</small></div>
-        <div><b>1–2,5 m</b><small data-i18n="pn_depth">Wassertiefe</small></div>
-        <div><b>40 km</b><small data-i18n="pn_sea">bis zum Mittelmeer</small></div>
       </div>
     </div>
   </section>
@@ -520,9 +515,9 @@ section{padding-block:var(--pad)}
       <div>
         <div class="host">
           <img src="img/blumen.jpg" alt="" loading="lazy">
-          <div><span class="hand" data-i18n="hand_host">Ihre Gastgeber</span><h2 data-i18n="host_h">Sibylle &amp; ihr Mann</h2></div>
+          <div><span class="hand" data-i18n="hand_host">Ihre Gastgeberin</span><h2 data-i18n="host_h">Sibylle</h2></div>
         </div>
-        <p style="margin-top:18px;max-width:52ch" data-i18n="host_p">Fragen zum Haus, zur Anreise oder zu Ausflügen? Schreiben Sie Sibylle oder rufen Sie an, wir helfen gern.</p>
+        <p style="margin-top:18px;max-width:52ch" data-i18n="host_p">Fragen zum Haus, zur Anreise oder zu Ausflügen? Schreiben Sie Sibylle oder rufen Sie an, sie hilft gern.</p>
       </div>
       <ul class="clist">
         <li><span data-i18n="c_phone">Telefon</span><div>CH +41 79 728 36 34<br>FR +33 6 27 57 37 48</div></li>
@@ -553,7 +548,7 @@ ground:"Ground floor",upper:"Upstairs",extras:"On request",r_living:"Living room
 r_kitchen:"Kitchen",r_kitchen_p:"Open kitchen with oven, two hobs, kettle, toaster and Italian coffee maker.",r_bath:"Shower room",r_bath_p:"Bathroom with walk-in shower, washbasin and WC.",
 r_room1:"Bedroom 1",r_room1_p:"20 m², double bed 160 × 200 cm, with a carved headboard and a reading corner.",r_room2:"Bedroom 2",r_room2_p:"20 m², four-poster bed 180 × 200 cm and an antique writing desk.",
 r_extra:"For families",r_extra_p:"Two extra beds for up to 6 guests, plus a cot and a high chair.",
-hand_garden:"Outside is the second living room",garden_h:"Garden & pool",garden_p:"A shady spot under the tree in front of the house, a covered terrace with a large table and barbecue, and a pool that guests share with Sibylle and her husband.",hand_cook:"Bon appétit!",cook_h:"Sibylle cooks for you on request",cook_p:"Breakfast, lunch or dinner: Sibylle is happy to cook for her guests. On request and at extra cost.",
+hand_garden:"Outside is the second living room",garden_h:"Garden & pool",garden_p:"A shady spot under the tree in front of the house, a covered terrace with a large table and barbecue, and a 10 × 5 m pool (1 to 2.5 m deep) that guests share with Sibylle and her husband. From the pool you can see all the way to the Mediterranean, about 40 km away.",hand_cook:"Bon appétit!",cook_h:"Sibylle cooks for you on request",cook_p:"Breakfast, lunch or dinner: Sibylle is happy to cook for her guests. On request and at extra cost.",
 pn_size:"pool",pn_depth:"water depth",pn_sea:"to the Mediterranean",hand_area:"Out into nature",area_h:"Surroundings",
 area_p:"Between vineyards, rivers and the sea: towns, beaches and museums are a short drive away, and walking trails start right at the front door.",
 onsite:"on site",d_hike:"Walking and long-distance trails",d_food:"Restaurant and vineyard",d_forest:"Forest",d_shop:"Shops, tennis",d_ride:"Horse riding, doctor",d_town:"Bédarieux station, cinema, museums",d_beach:"Mediterranean beaches",d_air:"Béziers Cap d'Agde airport",
@@ -565,7 +560,7 @@ rv4:"A place to relax and to come back to. The garden with the pool felt like an
 hand_prac:"Good to know",prac_h:"Practical info",p_arr:"Arrival & departure",p_arr1:"Check-in from 4 pm",p_arr2:"Check-out by 10 am",p_arr3:"Private parking in front of the house",
 p_inc:"Included",p_inc1:"Bed linen, towels, table linen",p_inc2:"Electricity, heating, Wi-Fi",p_inc3:"Final cleaning",p_note:"Please note",p_note1:"Sorry, no pets",p_note2:"Deposit €200",p_note3:"Sibylle speaks German, French and English",p_note4:"On request Sibylle cooks for you: breakfast, lunch or dinner (at extra cost)",
 hand_book:"À bientôt!",book_h:"Book your stay",book_p:"Available dates, prices and secure booking are on the Gîtes de France website.",book_price:"from €805 per week",book_cta2:"Go to Gîtes de France",gdf_label:"Approved by Gîtes de France · Ref. 34G062",
-hand_host:"Your hosts",host_h:"Sibylle &amp; her husband",host_p:"Questions about the house, getting here or day trips? Write to Sibylle or give us a call, we're happy to help.",c_phone:"Phone",c_addr:"Address",c_map:"View on the map",foot:"Holiday home in Caussiniojouls, Hérault, Occitanie"},
+hand_host:"Your host",host_h:"Sibylle",host_p:"Questions about the house, getting here or day trips? Write to Sibylle or give her a call, she's happy to help.",c_phone:"Phone",c_addr:"Address",c_map:"View on the map",foot:"Holiday home in Caussiniojouls, Hérault, Occitanie"},
 fr:{cat_city:"Balades en ville",cat_water:"Au bord de l'eau",cat_art:"Art",cat_sport:"Sport",map_note:"Distances à vol d'oiseau, approximatives",w_orb:"Canoë sur l'Orb",a_mrac:"MRAC Sérignan (art contemporain)",near:"tout près",s_bike:"Voie verte : piste cyclable qui passe presque devant la maison",s_run:"Randonnée et jogging",onsite2:"depuis la porte",g_rev_h:"Avis Google",nav_welcome:"Bienvenue",nav_house:"La maison",nav_garden:"Jardin & piscine",nav_area:"Alentours",nav_reviews:"Avis",nav_prac:"Infos pratiques",nav_contact:"Contact",book_short:"Réserver",
 cap:"Pour 4 à 6 personnes",lead:"Une maison en pierre de style campagne, nichée entre les vignes de l'appellation AOC Faugères. Avec jardin, piscine et vue sur les vignes jusqu'à la mer.",hand_hero:"Bienvenue chez nous !",book_cta:"Disponibilités & réservation",
 f_guests:"personnes",f_rooms:"chambres",f_pool:"m de piscine",f_rating:"avis des hôtes",hand_intro:"Bienvenue dans le Sud",intro_h:"Arriver et respirer",
@@ -576,7 +571,7 @@ ground:"Rez-de-chaussée",upper:"Étage",extras:"Sur demande",r_living:"Séjour"
 r_kitchen:"Cuisine",r_kitchen_p:"Cuisine ouverte avec four, deux plaques, bouilloire, grille-pain et cafetière italienne.",r_bath:"Salle d'eau",r_bath_p:"Salle d'eau avec douche à l'italienne, lavabo et WC.",
 r_room1:"Chambre 1",r_room1_p:"20 m², lit 160 × 200 cm, tête de lit sculptée et coin lecture.",r_room2:"Chambre 2",r_room2_p:"20 m², lit à baldaquin 180 × 200 cm et un ancien secrétaire.",
 r_extra:"Pour les familles",r_extra_p:"Deux lits d'appoint pour accueillir jusqu'à 6 personnes, un lit parapluie et une chaise haute.",
-hand_garden:"Dehors, le deuxième salon",garden_h:"Jardin & piscine",garden_p:"Un coin ombragé sous l'arbre devant la maison, une terrasse couverte avec grande table et barbecue, et une piscine partagée avec Sibylle et son mari.",hand_cook:"Bon appétit !",cook_h:"Sibylle cuisine pour vous sur demande",cook_p:"Petit-déjeuner, déjeuner ou dîner : Sibylle aime cuisiner pour ses hôtes. Sur demande et avec supplément.",
+hand_garden:"Dehors, le deuxième salon",garden_h:"Jardin & piscine",garden_p:"Un coin ombragé sous l'arbre devant la maison, une terrasse couverte avec grande table et barbecue, et une piscine de 10 × 5 m (1 à 2,5 m de profondeur) partagée avec Sibylle et son mari. Depuis la piscine, la vue porte jusqu'à la Méditerranée, à environ 40 km.",hand_cook:"Bon appétit !",cook_h:"Sibylle cuisine pour vous sur demande",cook_p:"Petit-déjeuner, déjeuner ou dîner : Sibylle aime cuisiner pour ses hôtes. Sur demande et avec supplément.",
 pn_size:"piscine",pn_depth:"profondeur",pn_sea:"jusqu'à la Méditerranée",hand_area:"En pleine nature",area_h:"Les alentours",
 area_p:"Entre vignes, rivières et mer : villes, plages et musées sont à quelques kilomètres, et les sentiers partent de la porte.",
 onsite:"sur place",d_hike:"Sentiers de randonnée et GR",d_food:"Restaurant et vignoble",d_forest:"Forêt",d_shop:"Commerces, tennis",d_ride:"Équitation, médecin",d_town:"Gare de Bédarieux, cinéma, musées",d_beach:"Plages de la Méditerranée",d_air:"Aéroport Béziers Cap d'Agde",
@@ -588,7 +583,7 @@ rv4:"Un lieu pour se détendre et où l'on revient. Le jardin avec la piscine é
 hand_prac:"Bon à savoir",prac_h:"Infos pratiques",p_arr:"Arrivée & départ",p_arr1:"Arrivée à partir de 16 h",p_arr2:"Départ avant 10 h",p_arr3:"Place de parking devant la maison",
 p_inc:"Inclus",p_inc1:"Linge de lit, serviettes, linge de table",p_inc2:"Électricité, chauffage, Wi-Fi",p_inc3:"Ménage de fin de séjour",p_note:"À noter",p_note1:"Animaux non admis",p_note2:"Caution 200 €",p_note3:"Sibylle parle français, allemand et anglais",p_note4:"Sur demande, Sibylle cuisine pour vous : petit-déjeuner, déjeuner ou dîner (avec supplément)",
 hand_book:"À bientôt !",book_h:"Réserver votre séjour",book_p:"Disponibilités, tarifs et réservation sécurisée sur le site Gîtes de France.",book_price:"à partir de 805 € la semaine",book_cta2:"Vers Gîtes de France",gdf_label:"Labellisé Gîtes de France · Réf. 34G062",
-hand_host:"Vos hôtes",host_h:"Sibylle &amp; son mari",host_p:"Une question sur la maison, l'accès ou les excursions ? Écrivez à Sibylle ou appelez-nous, nous vous aidons volontiers.",c_phone:"Téléphone",c_addr:"Adresse",c_map:"Voir sur la carte",foot:"Gîte à Caussiniojouls, Hérault, Occitanie"}
+hand_host:"Votre hôte",host_h:"Sibylle",host_p:"Une question sur la maison, l'accès ou les excursions ? Écrivez à Sibylle ou appelez-la, elle vous aidera volontiers.",c_phone:"Téléphone",c_addr:"Adresse",c_map:"Voir sur la carte",foot:"Gîte à Caussiniojouls, Hérault, Occitanie"}
 };
 const nodes=[...document.querySelectorAll("[data-i18n]")];
 nodes.forEach(n=>n.dataset.de=n.innerHTML);
