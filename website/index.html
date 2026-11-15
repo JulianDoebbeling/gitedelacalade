@@ -231,6 +231,130 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
 .explore{min-height:340px}
 .map-note{margin-top:14px;font-size:.8rem;font-style:italic;color:var(--sage-deep)}
 @media (max-width:900px){.surround{grid-template-columns:1fr;gap:24px}.explore{min-height:0}}
+
+/* ===== mobile menu ===== */
+.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:transparent;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0;flex:0 0 auto}
+.menu-btn span{display:block;width:18px;height:2px;border-radius:2px;background:var(--sage-deep);transition:transform .25s,opacity .2s}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+nav.main .nav-book{display:none}
+@media (max-width:1080px){
+  :root{--head:67px}
+  .menu-btn{display:flex}
+  .langs{margin-left:auto}
+  nav.main{display:flex;position:fixed;left:0;right:0;top:var(--head);flex-direction:column;gap:0;margin:0;padding:8px var(--gutter-r) 22px var(--gutter-l);background:var(--linen);border-bottom:1px solid var(--line);box-shadow:0 24px 40px -28px rgba(44,49,40,.5);font-size:1.15rem;max-height:calc(100svh - var(--head));overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s}
+  nav.main.open{opacity:1;visibility:visible;transform:none}
+  nav.main a{padding:12px 4px;border-bottom:1px solid var(--line);font-family:var(--display);letter-spacing:.1em;text-transform:uppercase;font-size:1rem;color:var(--sage-deep);opacity:1}
+  nav.main a:hover{text-decoration:none;color:var(--lavender)}
+  nav.main .nav-book{display:inline-flex;align-self:flex-start;margin-top:18px;border:0;font-family:var(--body);text-transform:none;letter-spacing:0;color:#fff;padding:12px 20px}
+  .head-book{display:none}
+}
+@media (max-width:460px){.bar{gap:12px}}
+
+/* ===== every section fits one screen ===== */
+:root{--pad:clamp(18px,5.5vh,60px)}
+section{padding-block:var(--pad)}
+.fit{height:var(--screen);min-height:0}
+.fit>.wrap{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center}
+.hero{height:var(--screen);min-height:0}
+.hero-grid{min-height:0}
+.hero-photo{min-height:0}
+/* welcome */
+#willkommen>.wrap{display:grid;grid-template-rows:minmax(0,1fr);align-items:center}
+#willkommen .welcome-img{height:100%;min-height:0;max-height:780px}
+/* house */
+.house-sl{flex:1;min-height:0;display:flex;flex-direction:column;margin-top:clamp(14px,3vh,34px)}
+.house-sl .track{flex:1;min-height:0}
+.room{height:auto;max-height:600px}
+.sl-nav{margin-top:clamp(8px,2vh,18px)}
+/* garden */
+#garten .slides{flex:1;min-height:0;display:flex;margin-top:clamp(14px,3vh,36px)}
+#garten .track{flex:1;min-height:0;align-items:stretch}
+#garten .track>img{height:100%;max-height:600px}
+.pool-note{margin-top:clamp(10px,3vh,44px);gap:clamp(14px,3vw,30px)}
+/* surroundings */
+.surround{flex:1;min-height:0;grid-template-rows:minmax(0,1fr);margin-top:clamp(14px,3vh,36px)}
+.mapfig{height:100%;min-height:0;container-type:size;display:flex;align-items:center;justify-content:center}
+.map{width:min(100cqw,calc(100cqh * 500 / 340));height:auto}
+.explore{min-height:0;align-self:center}
+@media (max-height:760px) and (min-width:901px){.places li{padding:9px 10px}}
+@media (min-width:821px){.headrow p{font-size:1rem}}
+
+/* phones and narrow screens */
+@media (max-width:900px){
+  .surround{grid-template-columns:1fr;grid-template-rows:minmax(120px,1fr) auto;gap:14px}
+  .explore{align-self:stretch}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-bottom:8px;gap:6px}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{white-space:nowrap;padding:6px 12px;font-size:.82rem}
+  .places li{padding:8px 6px}
+  .places .nm{font-size:.92rem}
+  .map-note{margin-top:6px;font-size:.72rem}
+}
+@media (max-width:820px){
+  body{font-size:15.5px;line-height:1.5}
+  h2{font-size:clamp(1.35rem,6.4vw,1.7rem)}
+  .hand{font-size:1.3rem}
+  .eyebrow{margin-bottom:2px}
+  .headrow{gap:6px}
+  .headrow p{font-size:.92rem}
+  /* hero */
+  .hero{padding-block:12px 0}
+  .hero-grid{grid-template-rows:minmax(0,1fr) auto}
+  .hero-card{padding:20px 20px 22px;gap:10px}
+  .hero-card .lead{font-size:.95rem}
+  .hero-card .hand{display:none}
+  .hero-card .place{font-size:.68rem;letter-spacing:.16em}
+  .facts{flex-wrap:nowrap;justify-content:space-between;gap:8px;padding-block:12px;font-size:.72rem}
+  .facts>span{flex-direction:column;align-items:center;gap:0;text-align:center;line-height:1.15}
+  .facts>span>span{display:block}
+  .facts b{font-size:1.05rem}
+  .facts>span:last-child{display:none}
+  /* welcome */
+  #willkommen>.wrap{grid-template-rows:auto minmax(0,1fr);gap:16px;align-items:stretch}
+  #willkommen .welcome-img{height:100%;min-height:120px}
+  .intro p+p{margin-top:8px}
+  #willkommen p{font-size:.92rem;line-height:1.45}
+  #willkommen p[style]{margin-top:10px!important}
+  /* house */
+  .room{grid-template-rows:minmax(0,1fr) auto;height:100%;max-height:none}
+  .room img{aspect-ratio:auto;height:100%;min-height:0}
+  .room .room-txt{padding:14px 18px 16px;gap:4px}
+  .room .count{font-size:1.05rem}
+  .room h3{font-size:1.15rem}
+  .room p{font-size:.9rem}
+  .house-sl .sl-btn{width:40px;height:40px}
+  /* garden */
+  #garten .track>img{max-width:88%}
+  .pool-note b{font-size:1.4rem}
+  .pool-note small{font-size:.75rem}
+  .pool-note div{min-width:0}
+  .pool-note{flex-wrap:nowrap;justify-content:space-between}
+  /* practical */
+  .prac{gap:12px;margin-top:14px}
+  .prac div{padding-top:8px}
+  .prac h3{margin-bottom:4px;font-size:.92rem}
+  .prac li{margin-bottom:1px;font-size:.9rem}
+  /* contact */
+  .contact{gap:12px}
+  .host img{width:78px;height:78px;border-width:3px}
+  .clist{margin-top:6px;gap:8px}
+  .clist li{grid-template-columns:90px 1fr;font-size:.92rem}
+  .book .wrap{gap:12px}
+}
+@media (max-width:820px) and (max-height:700px){
+  #haus .headrow p,#umgebung .headrow p,#garten .headrow p{display:none}
+}
+/* very short screens (phone in landscape): fall back to natural height */
+@media (max-height:520px){
+  .fit,.hero{height:auto;min-height:var(--screen)}
+  #willkommen .welcome-img{height:70vh}
+  .house-sl .track,#garten .track{flex:none}
+  .room{height:70vh}
+  #garten .track>img{height:70vh}
+  .mapfig{height:70vh}
+}
 </style>
 </head>
 <body>
@@ -238,20 +362,23 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
 <header>
   <div class="wrap bar">
     <a class="mark" href="#top">GÎTE DE LA CALADE</a>
-    <nav class="main" aria-label="Hauptnavigation">
+    <nav class="main" id="mainnav" aria-label="Hauptnavigation">
       <a href="#willkommen" data-i18n="nav_welcome">Willkommen</a>
       <a href="#haus" data-i18n="nav_house">Das Haus</a>
       <a href="#garten" data-i18n="nav_garden">Garten &amp; Pool</a>
       <a href="#umgebung" data-i18n="nav_area">Umgebung</a>
       <a href="#gaeste" data-i18n="nav_reviews">Bewertungen</a>
+      <a href="#praktisch" data-i18n="nav_prac">Praktisches</a>
       <a href="#kontakt" data-i18n="nav_contact">Kontakt</a>
+      <a class="btn nav-book book-link" href="https://www.gites-de-france.com/fr/occitanie/herault/gite-de-la-calade-34g062" target="_blank" rel="noopener"><span data-i18n="book_cta">Verfügbarkeit &amp; Buchung</span> →</a>
     </nav>
     <div class="langs" role="group" aria-label="Sprache">
       <button type="button" id="lang-de" data-lang="de" aria-pressed="true">DE</button>
       <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
       <button type="button" id="lang-fr" data-lang="fr" aria-pressed="false">FR</button>
     </div>
-    <a class="btn small book-link" href="https://www.gites-de-france.com/fr/occitanie/herault/gite-de-la-calade-34g062" target="_blank" rel="noopener" data-i18n="book_short">Buchen</a>
+    <a class="btn small book-link head-book" href="https://www.gites-de-france.com/fr/occitanie/herault/gite-de-la-calade-34g062" target="_blank" rel="noopener" data-i18n="book_short">Buchen</a>
+    <button type="button" class="menu-btn" id="menu-btn" aria-controls="mainnav" aria-expanded="false" aria-label="Menü"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -277,7 +404,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
     </div>
   </div>
 
-  <section id="willkommen">
+  <section id="willkommen" class="fit">
     <div class="wrap intro">
       <div class="text">
         <span class="hand eyebrow" data-i18n="hand_intro">Willkommen im Süden</span>
@@ -289,7 +416,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
     </div>
   </section>
 
-  <section class="band" id="haus">
+  <section class="band fit" id="haus">
     <div class="wrap">
       <div class="headrow">
         <div><span class="hand eyebrow" data-i18n="hand_house">88 m² zum Wohlfühlen</span><h2 data-i18n="house_h">Das Haus</h2></div>
@@ -309,7 +436,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
     </div>
   </section>
 
-  <section id="garten">
+  <section id="garten" class="fit">
     <div class="wrap">
       <div class="headrow">
         <div><span class="hand eyebrow" data-i18n="hand_garden">Draußen ist das zweite Wohnzimmer</span><h2 data-i18n="garden_h">Garten &amp; Pool</h2></div>
@@ -339,7 +466,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
     </div>
   </section>
 
-  <section class="band" id="umgebung">
+  <section class="band fit" id="umgebung">
     <div class="wrap">
       <div class="headrow">
         <div><span class="hand eyebrow" data-i18n="hand_area">Raus in die Natur</span><h2 data-i18n="area_h">Die Umgebung</h2></div>
@@ -365,7 +492,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
     </div>
   </section>
 
-  <section>
+  <section id="praktisch">
     <div class="wrap">
       <span class="hand eyebrow" data-i18n="hand_prac">Gut zu wissen</span>
       <h2 data-i18n="prac_h">Praktisches</h2>
@@ -416,7 +543,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
 
 <script>
 const T={
-en:{cat_city:"City strolls",cat_water:"By the water",cat_art:"Art",cat_sport:"Sport",map_note:"Distances as the crow flies, approximate",w_orb:"Canoeing on the Orb",a_mrac:"MRAC Sérignan (contemporary art)",near:"nearby",s_bike:"Voie verte: cycle path passing close to the house",s_run:"Hiking and jogging",onsite2:"from the door",g_rev_h:"Reviews on Google",nav_welcome:"Welcome",nav_house:"The house",nav_garden:"Garden & pool",nav_area:"Surroundings",nav_reviews:"Reviews",nav_contact:"Contact",book_short:"Book",
+en:{cat_city:"City strolls",cat_water:"By the water",cat_art:"Art",cat_sport:"Sport",map_note:"Distances as the crow flies, approximate",w_orb:"Canoeing on the Orb",a_mrac:"MRAC Sérignan (contemporary art)",near:"nearby",s_bike:"Voie verte: cycle path passing close to the house",s_run:"Hiking and jogging",onsite2:"from the door",g_rev_h:"Reviews on Google",nav_welcome:"Welcome",nav_house:"The house",nav_garden:"Garden & pool",nav_area:"Surroundings",nav_reviews:"Reviews",nav_prac:"Good to know",nav_contact:"Contact",book_short:"Book",
 cap:"For 4 to 6 guests",lead:"A country-style stone house nestled among the vines of the AOC Faugères wine region. With a garden, a pool and views over the vineyards all the way to the sea.",hand_hero:"Bienvenue chez nous!",book_cta:"Availability & booking",
 f_guests:"guests",f_rooms:"bedrooms",f_pool:"m pool",f_rating:"guest rating",hand_intro:"Welcome to the south",intro_h:"Arrive and breathe",
 intro_p1:"The gîte is in Caussiniojouls, a small village north of Béziers on the edge of the Haut-Languedoc nature park. It stands on the grounds of Sibylle and her husband, who welcome their guests warmly and are happy to share tips for the area.",
@@ -439,7 +566,7 @@ hand_prac:"Good to know",prac_h:"Practical info",p_arr:"Arrival & departure",p_a
 p_inc:"Included",p_inc1:"Bed linen, towels, table linen",p_inc2:"Electricity, heating, Wi-Fi",p_inc3:"Final cleaning",p_note:"Please note",p_note1:"Sorry, no pets",p_note2:"Deposit €200",p_note3:"Sibylle speaks German, French and English",p_note4:"On request Sibylle cooks for you: breakfast, lunch or dinner (at extra cost)",
 hand_book:"À bientôt!",book_h:"Book your stay",book_p:"Available dates, prices and secure booking are on the Gîtes de France website.",book_price:"from €805 per week",book_cta2:"Go to Gîtes de France",gdf_label:"Approved by Gîtes de France · Ref. 34G062",
 hand_host:"Your hosts",host_h:"Sibylle &amp; her husband",host_p:"Questions about the house, getting here or day trips? Write to Sibylle or give us a call, we're happy to help.",c_phone:"Phone",c_addr:"Address",c_map:"View on the map",foot:"Holiday home in Caussiniojouls, Hérault, Occitanie"},
-fr:{cat_city:"Balades en ville",cat_water:"Au bord de l'eau",cat_art:"Art",cat_sport:"Sport",map_note:"Distances à vol d'oiseau, approximatives",w_orb:"Canoë sur l'Orb",a_mrac:"MRAC Sérignan (art contemporain)",near:"tout près",s_bike:"Voie verte : piste cyclable qui passe presque devant la maison",s_run:"Randonnée et jogging",onsite2:"depuis la porte",g_rev_h:"Avis Google",nav_welcome:"Bienvenue",nav_house:"La maison",nav_garden:"Jardin & piscine",nav_area:"Alentours",nav_reviews:"Avis",nav_contact:"Contact",book_short:"Réserver",
+fr:{cat_city:"Balades en ville",cat_water:"Au bord de l'eau",cat_art:"Art",cat_sport:"Sport",map_note:"Distances à vol d'oiseau, approximatives",w_orb:"Canoë sur l'Orb",a_mrac:"MRAC Sérignan (art contemporain)",near:"tout près",s_bike:"Voie verte : piste cyclable qui passe presque devant la maison",s_run:"Randonnée et jogging",onsite2:"depuis la porte",g_rev_h:"Avis Google",nav_welcome:"Bienvenue",nav_house:"La maison",nav_garden:"Jardin & piscine",nav_area:"Alentours",nav_reviews:"Avis",nav_prac:"Infos pratiques",nav_contact:"Contact",book_short:"Réserver",
 cap:"Pour 4 à 6 personnes",lead:"Une maison en pierre de style campagne, nichée entre les vignes de l'appellation AOC Faugères. Avec jardin, piscine et vue sur les vignes jusqu'à la mer.",hand_hero:"Bienvenue chez nous !",book_cta:"Disponibilités & réservation",
 f_guests:"personnes",f_rooms:"chambres",f_pool:"m de piscine",f_rating:"avis des hôtes",hand_intro:"Bienvenue dans le Sud",intro_h:"Arriver et respirer",
 intro_p1:"Le gîte se trouve à Caussiniojouls, petit village au nord de Béziers, aux portes du Parc naturel régional du Haut-Languedoc. Il est situé sur le terrain de Sibylle et de son mari, qui accueillent leurs hôtes chaleureusement et partagent volontiers leurs bonnes adresses.",
@@ -501,6 +628,12 @@ document.querySelectorAll('.house-sl').forEach(sl=>{const t=sl.querySelector('.t
  t.addEventListener('scroll',()=>{clearTimeout(t._m);t._m=setTimeout(mark,60)});mark();
  sl.querySelector('.prev').addEventListener('click',()=>go(cur()-1));sl.querySelector('.next').addEventListener('click',()=>go(cur()+1));
  t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(cur()+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(cur()-1)}});});
+const mb=document.getElementById('menu-btn'),mn=document.getElementById('mainnav');
+const setMenu=o=>{mn.classList.toggle('open',o);mb.setAttribute('aria-expanded',o)};
+mb.addEventListener('click',()=>setMenu(!mn.classList.contains('open')));
+mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+document.addEventListener('click',e=>{if(mn.classList.contains('open')&&!mn.contains(e.target)&&!mb.contains(e.target))setMenu(false)});
 </script>
 
 </body>
