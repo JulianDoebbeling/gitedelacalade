@@ -13,7 +13,7 @@
 :root{
   --sage:#6B855A;        /* main colour from the postcard band */
   --sage-deep:#435638;   /* text on light, buttons */
-  --sage-pale:#D9E3CB;   /* mid sage surface for bands */
+  --sage-pale:#C3D1AB;   /* mid sage surface for bands */
   --linen:#D9E3CB;       /* page ground: light sage */
   --ink:#2C3128;         /* body text */
   --lavender:#7C6FA8;    /* playful accent from the garden */
@@ -392,8 +392,17 @@ section{padding-block:var(--pad)}
 }
 
 /* one consistent green ground; sections separated by a fine line */
-main>section+section,.hero+section{border-top:1px solid var(--line)}
 .map .land{fill:#F0F4EA}
+
+/* rich olive band (Das Haus) */
+.olive{background:var(--sage);color:#fff}
+.olive h2{color:#fff}
+.olive .hand{color:#E4DDF6}
+.olive .headrow p{color:#fff;opacity:.95}
+.olive .room{color:var(--ink)}
+.olive .dots button{background:rgba(255,255,255,.45)}
+.olive .dots button[aria-current="true"]{background:#fff}
+#umgebung .map{box-shadow:0 18px 40px -26px rgba(44,49,40,.55)}
 </style>
 </head>
 <body>
@@ -448,7 +457,7 @@ main>section+section,.hero+section{border-top:1px solid var(--line)}
     </div>
   </section>
 
-  <section class="band fit" id="haus">
+  <section class="band olive fit" id="haus">
     <div class="wrap">
       <div class="headrow">
         <div><span class="hand eyebrow" data-i18n="hand_house">88 m² zum Wohlfühlen</span><h2 data-i18n="house_h">Das Haus</h2></div>
