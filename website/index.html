@@ -11,14 +11,14 @@
 <style>
 /* Layout: postcard-strip identity. A sage band carries the name like on Sibylle's cards; photos sit as tilted postcards; sections alternate linen and sage. */
 :root{
-  --sage:#7A8670;        /* main colour from the postcard band */
-  --sage-deep:#4D5944;   /* text on light, buttons */
-  --sage-pale:#D3DAC7;   /* mid sage surface for bands */
-  --linen:#E6EADF;       /* page ground: light sage */
+  --sage:#6B855A;        /* main colour from the postcard band */
+  --sage-deep:#435638;   /* text on light, buttons */
+  --sage-pale:#D9E3CB;   /* mid sage surface for bands */
+  --linen:#D9E3CB;       /* page ground: light sage */
   --ink:#2C3128;         /* body text */
   --lavender:#7C6FA8;    /* playful accent from the garden */
   --clay:#B5523B;        /* tiny warm accent from the textiles */
-  --line:#C2CAB6;
+  --line:#B6C6A4;
   --display:"Marcellus","Trajan Pro","Cinzel",Georgia,serif;
   --body:"Figtree","Segoe UI",system-ui,sans-serif;
   --hand:"Caveat","Bradley Hand","Segoe Print",cursive;
@@ -43,7 +43,7 @@ p{margin:0}
 :focus-visible{outline:2px solid var(--lavender);outline-offset:3px}
 
 /* header */
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(230,234,223,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(217,227,203,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;gap:20px;padding-block:12px}
 .mark{font-family:var(--display);letter-spacing:.18em;font-size:1rem;text-decoration:none;color:var(--sage-deep);white-space:nowrap}
 nav.main{display:flex;gap:18px;margin-left:auto;font-size:.92rem}
@@ -172,7 +172,7 @@ section>.wrap{width:100%}
 /* contact */
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 .host{display:flex;gap:20px;align-items:center}
-.host img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:5px solid #fff;box-shadow:0 6px 18px -10px rgba(0,0,0,.4)}
+.host img{width:170px;height:170px;flex:0 0 auto;border-radius:50%;object-fit:cover;border:5px solid #fff;box-shadow:0 6px 18px -10px rgba(0,0,0,.4)}
 .clist{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
 .clist li{display:grid;grid-template-columns:110px 1fr;gap:10px;font-size:.98rem}
 .clist span{color:var(--sage);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
@@ -339,7 +339,7 @@ section{padding-block:var(--pad)}
   .prac li{margin-bottom:1px;font-size:.9rem}
   /* contact */
   .contact{gap:12px}
-  .host img{width:78px;height:78px;border-width:3px}
+  .host img{width:110px;height:110px;border-width:3px}
   .clist{margin-top:6px;gap:8px}
   .clist li{grid-template-columns:90px 1fr;font-size:.92rem}
   .book .wrap{gap:12px}
@@ -390,6 +390,10 @@ section{padding-block:var(--pad)}
   #umgebung .tabs{margin-bottom:4px}
   #umgebung .map-note{margin-top:4px}
 }
+
+/* one consistent green ground; sections separated by a fine line */
+main>section+section,.hero+section{border-top:1px solid var(--line)}
+.map .land{fill:#F0F4EA}
 </style>
 </head>
 <body>
@@ -542,7 +546,7 @@ section{padding-block:var(--pad)}
     <div class="wrap contact">
       <div>
         <div class="host">
-          <img src="img/blumen.jpg" alt="" loading="lazy">
+          <img src="img/sibylle.jpg" alt="Sibylle, Gastgeberin des Gîte de la Calade" loading="lazy">
           <div><span class="hand" data-i18n="hand_host">Ihre Gastgeberin</span><h2 data-i18n="host_h">Sibylle</h2></div>
         </div>
         <p style="margin-top:18px;max-width:52ch" data-i18n="host_p">Fragen zum Haus, zur Anreise oder zu Ausflügen? Schreiben Sie Sibylle oder rufen Sie an, sie hilft gern.</p>
