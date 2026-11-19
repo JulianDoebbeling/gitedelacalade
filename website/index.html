@@ -403,6 +403,8 @@ section{padding-block:var(--pad)}
 .olive .dots button{background:rgba(255,255,255,.45)}
 .olive .dots button[aria-current="true"]{background:#fff}
 #umgebung .map{box-shadow:0 18px 40px -26px rgba(44,49,40,.55)}
+
+@media (max-width:820px){#willkommen h2{display:none}#willkommen .eyebrow{font-size:1.45rem;margin-bottom:4px}#willkommen .text p{font-size:.9rem;line-height:1.45}}
 </style>
 </head>
 <body>
@@ -448,10 +450,10 @@ section{padding-block:var(--pad)}
   <section id="willkommen" class="fit">
     <div class="wrap intro">
       <div class="text">
-        <span class="hand eyebrow" data-i18n="hand_intro">Willkommen im Süden</span>
+        <span class="hand eyebrow" data-i18n="hand_intro">Herzlich willkommen in unserem kleinen Paradies!</span>
         <h2 data-i18n="intro_h">Ankommen und durchatmen</h2>
-        <p style="margin-top:18px" data-i18n="intro_p1">Das Gîte liegt in Caussiniojouls, einem kleinen Dorf nördlich von Béziers, am Rand des Regionalparks Haut-Languedoc. Es steht auf dem Grundstück von Sibylle und ihrem Mann, die ihre Gäste herzlich empfangen und gern Tipps für die Gegend geben.</p>
-        <p data-i18n="intro_p2">Das Haus ist liebevoll im Landhausstil eingerichtet, mit marokkanischen Elementen: Natursteinmauern, Holzbalken, rote Teppiche, Laternen und viele Blumen. Bettwäsche, Handtücher, Strom, Heizung und Endreinigung sind inklusive.</p>
+        <p style="margin-top:18px" data-i18n="intro_p1">Ich bin Sibylle. Über die letzten 20 Jahre haben mein Mann und ich uns hier in Caussiniojouls einen Lebenstraum verwirklicht. Das kleine Dorf liegt nördlich von Béziers, am Rand des Regionalparks Haut-Languedoc. Wann immer wir freie Momente fanden, haben wir an unserem Grundstück gearbeitet. So ist neben unserem Wohnhaus ein wundervolles Gästehaus entstanden, eingerichtet im Landhausstil mit marokkanischen Elementen.</p>
+        <p data-i18n="intro_p2">Wir freuen uns, Sie hier zu empfangen, ob für aktive Sportferien, Kulturferien oder einfach zum Entspannen. Gerne geben wir Ihnen auch Tipps für die Gegend.</p>
       </div>
       <div class="welcome-img"><img src="img/haus.jpg" alt="Das Gîte de la Calade mit Garten und Tor"></div>
     </div>
@@ -461,14 +463,15 @@ section{padding-block:var(--pad)}
     <div class="wrap">
       <div class="headrow">
         <div><span class="hand eyebrow" data-i18n="hand_house">88 m² zum Wohlfühlen</span><h2 data-i18n="house_h">Das Haus</h2></div>
-        <p data-i18n="house_p">Unten wohnen, kochen und essen, oben zwei große Schlafzimmer unter den Holzbalken. Das Erdgeschoss ist klimatisiert.</p>
+        <p data-i18n="house_p">Unten wohnen, kochen und essen, oben zwei große Schlafzimmer unter den Holzbalken.</p>
       </div>
       <div class="slides house-sl">
         <div class="track rooms" tabindex="0" aria-roledescription="Bildergalerie">
           <article class="room"><div class="room-img"><img src="img/wohnen.jpg" alt="Wohnzimmer mit Steinwand und Sofas" loading="lazy"></div><div class="room-txt"><span class="floorline" data-i18n="ground">Erdgeschoss</span><h3 data-i18n="r_living">Wohnzimmer</h3><p data-i18n="r_living_p">Gemütliche Sofas vor der alten Steinwand, dazu ein Beamer mit Filmen für die Abende.</p></div></article>
           <article class="room"><div class="room-img"><img src="img/kueche.jpg" alt="Grüne Küche mit Blumentapete" loading="lazy"></div><div class="room-txt"><span class="floorline" data-i18n="ground">Erdgeschoss</span><h3 data-i18n="r_kitchen">Küche</h3><p data-i18n="r_kitchen_p">Offene Küche mit Backofen, zwei Kochplatten, Wasserkocher, Toaster und italienischer Kaffeekanne.</p></div></article>
-          <article class="room"><div class="room-img"><img src="img/essen.jpg" alt="Essecke mit Holztisch und offener Tür zum Innenhof" loading="lazy"></div><div class="room-txt"><span class="floorline" data-i18n="ground">Erdgeschoss</span><h3 data-i18n="r_dining">Essecke</h3><p data-i18n="r_dining_p">Gleich neben der Küche: eine gemütliche Sitzecke mit Holztisch für vier, hell und mit offener Tür zum Innenhof.</p></div></article>
+          <article class="room"><div class="room-img"><img src="img/essen.jpg" alt="Essecke mit Holztisch und offener Tür zum Innenhof" loading="lazy"></div><div class="room-txt"><span class="floorline" data-i18n="ground">Erdgeschoss</span><h3 data-i18n="r_dining">Essecke</h3><p data-i18n="r_dining_p">Gleich neben der Küche lädt eine gemütliche Sitzecke mit Holztisch für vier zum Essen ein.</p></div></article>
           <article class="room"><div class="room-img"><img src="img/bad.jpg" alt="Duschbad in warmen Gelbtönen" loading="lazy"></div><div class="room-txt"><span class="floorline" data-i18n="ground">Erdgeschoss</span><h3 data-i18n="r_bath">Duschbad</h3><p data-i18n="r_bath_p">Bad mit offener Dusche, Waschbecken und WC.</p></div></article>
+          <article class="room"><div class="room-img"><img src="img/treppe-innen.jpg" alt="Steintreppe vom Eingang ins Obergeschoss" loading="lazy"></div><div class="room-txt"><span class="floorline" data-i18n="upper">Obergeschoss</span><h3 data-i18n="r_stairs">Treppe</h3><p data-i18n="r_stairs_p">Bitte beachten: Eine steile Steintreppe führt vom Eingang hinauf zu den Schlafzimmern.</p></div></article>
           <article class="room"><div class="room-img"><img src="img/zimmer1.jpg" alt="Schlafzimmer mit geschnitztem Kopfteil" loading="lazy"></div><div class="room-txt"><span class="floorline" data-i18n="upper">Obergeschoss</span><h3 data-i18n="r_room1">Schlafzimmer 1</h3><p data-i18n="r_room1_p">20 m², Doppelbett 160 × 200 cm, mit geschnitztem Kopfteil und Leseecke.</p></div></article>
           <article class="room"><div class="room-img"><img src="img/zimmer2.jpg" alt="Schlafzimmer mit Himmelbett" loading="lazy"></div><div class="room-txt"><span class="floorline" data-i18n="upper">Obergeschoss</span><h3 data-i18n="r_room2">Schlafzimmer 2</h3><p data-i18n="r_room2_p">20 m², Himmelbett 180 × 200 cm und ein alter Sekretär.</p></div></article>
         </div>
@@ -481,18 +484,22 @@ section{padding-block:var(--pad)}
     <div class="wrap">
       <div class="headrow">
         <div><span class="hand eyebrow" data-i18n="hand_garden">Draußen ist das zweite Wohnzimmer</span><h2 data-i18n="garden_h">Garten &amp; Pool</h2></div>
-        <p data-i18n="garden_p">Ein schattiger Platz unter dem Baum vor dem Haus, eine überdachte Terrasse mit großem Tisch und Grill und ein Pool von 10 × 5 m (1 bis 2,5 m tief), den sich die Gäste mit Sibylle und ihrem Mann teilen. Vom Pool reicht der Blick bis zum rund 40 km entfernten Mittelmeer.</p>
+        <p data-i18n="garden_p">Vor dem Gästehaus bieten wir unseren Gästen einen lauschigen Platz unter der Linde zur privaten Nutzung. Ein runder Tisch mit Stühlen lädt zum Zusammensitzen ein, und auf der Hollywoodschaukel unter dem großen Haselstrauch lässt es sich wunderbar entspannen. Der große Tisch im Pavillon auf der Terrasse mit Grill sowie der Pool mit gemütlicher Sitzgruppe stehen zur freien Nutzung. Von der Terrasse und dem Pool reicht der Blick bis zum Mittelmeer.</p>
       </div>
       <div class="slides" id="slides" aria-roledescription="Bildergalerie">
         <div class="track" id="track" tabindex="0">
           <img src="img/pool2.jpg" alt="Pool mit Liegen und Rattansesseln" loading="lazy">
+          <img src="img/g-schaukel.jpg" alt="Blick von der Hollywoodschaukel auf den runden Tisch unter der Linde" loading="lazy">
           <img src="img/terrasse.jpg" alt="Terrasse mit Blick auf den Pool" loading="lazy">
-          <img src="img/g-terrasse2.jpg" alt="Überdachte Terrasse mit Blick ins Weite" loading="lazy">
-          <img src="img/garten.jpg" alt="Garten mit Schaukelliege vor dem Haus" loading="lazy">
+          <img src="img/b-passionsblume.jpg" alt="Passionsblume im Garten" loading="lazy">
+          <img src="img/g-tisch-linde.jpg" alt="Runder Tisch mit Korbsesseln unter der Linde" loading="lazy">
+          <img src="img/b-salbei.jpg" alt="Blühender Salbei" loading="lazy">
           <img src="img/abend.jpg" alt="Gedeckter Tisch auf der überdachten Terrasse" loading="lazy">
+          <img src="img/b-brandkraut.jpg" alt="Brandkraut im Garten" loading="lazy">
           <img src="img/g-hof.jpg" alt="Hof mit Bäumen vor dem Haus" loading="lazy">
           <img src="img/treppe.jpg" alt="Steintreppe zum Haus" loading="lazy">
           <img src="img/fruehstueck.jpg" alt="Frühstück auf der Terrasse" loading="lazy">
+          <img src="img/b-salbei-pink.jpg" alt="Pinker Salbei" loading="lazy">
           <img src="img/g-tor.jpg" alt="Treppe mit Laterne und Gartentor" loading="lazy">
           <img src="img/lavendel.jpg" alt="Lavendel im Garten" loading="lazy">
         </div>
@@ -581,15 +588,15 @@ section{padding-block:var(--pad)}
 const T={
 en:{cat_city:"City strolls",cat_water:"By the water",cat_art:"Art",cat_sport:"Sport",map_note:"Distances as the crow flies, approximate",w_orb:"Canoeing on the Orb",a_mrac:"MRAC Sérignan (contemporary art)",near:"nearby",s_bike:"Voie verte: cycle path passing close to the house",s_run:"Hiking and jogging",onsite2:"from the door",g_rev_h:"Reviews on Google",nav_welcome:"Welcome",nav_house:"The house",nav_garden:"Garden & pool",nav_area:"Surroundings",nav_reviews:"Reviews",nav_prac:"Good to know",nav_contact:"Contact",book_short:"Book",
 cap:"For 4 to 6 guests",lead:"A country-style stone house nestled among the vines of the AOC Faugères wine region. With a garden, a pool and views over the vineyards all the way to the sea.",hand_hero:"Bienvenue chez nous!",book_cta:"Availability & booking",
-f_guests:"guests",f_rooms:"bedrooms",f_pool:"m pool",f_rating:"guest rating",hand_intro:"Welcome to the south",intro_h:"Arrive and breathe",
-intro_p1:"The gîte is in Caussiniojouls, a small village north of Béziers on the edge of the Haut-Languedoc nature park. It stands on the grounds of Sibylle and her husband, who welcome their guests warmly and are happy to share tips for the area.",
-intro_p2:"The house is lovingly furnished in country style with Moroccan touches: stone walls, wooden beams, red rugs, lanterns and flowers everywhere. Bed linen, towels, electricity, heating and final cleaning are included.",
-hand_house:"88 m² to feel at home",house_h:"The house",house_p:"Living, cooking and dining downstairs, two large bedrooms under the wooden beams upstairs. The ground floor is air-conditioned.",
+f_guests:"guests",f_rooms:"bedrooms",f_pool:"m pool",f_rating:"guest rating",hand_intro:"Welcome to our little paradise!",intro_h:"Arrive and breathe",
+intro_p1:"I'm Sibylle. Over the last 20 years my husband and I have made a lifelong dream come true here in Caussiniojouls, a small village north of Béziers on the edge of the Haut-Languedoc nature park. Whenever we found a free moment, we worked on our land, and so a wonderful guest house has grown up next to our own home, furnished in country style with Moroccan touches.",
+intro_p2:"We look forward to welcoming you, whether for an active sports holiday, a cultural trip or simply to relax. We are always happy to share tips for the area.",
+hand_house:"88 m² to feel at home",house_h:"The house",house_p:"Living, cooking and dining downstairs, two large bedrooms under the wooden beams upstairs.",
 ground:"Ground floor",upper:"Upstairs",extras:"On request",r_living:"Living room",r_living_p:"Comfy sofas in front of the old stone wall, plus a projector with films for the evenings.",
-r_kitchen:"Kitchen",r_dining:"Dining corner",r_dining_p:"Right next to the kitchen: a cosy dining corner with a wooden table for four, bright and opening onto the courtyard.",r_kitchen_p:"Open kitchen with oven, two hobs, kettle, toaster and Italian coffee maker.",r_bath:"Shower room",r_bath_p:"Bathroom with walk-in shower, washbasin and WC.",
+r_kitchen:"Kitchen",r_dining:"Dining corner",r_dining_p:"Right next to the kitchen, a cosy dining corner with a wooden table for four invites you to sit down for meals.",r_stairs:"Staircase",r_stairs_p:"Please note: a steep stone staircase leads from the entrance up to the bedrooms.",r_kitchen_p:"Open kitchen with oven, two hobs, kettle, toaster and Italian coffee maker.",r_bath:"Shower room",r_bath_p:"Bathroom with walk-in shower, washbasin and WC.",
 r_room1:"Bedroom 1",r_room1_p:"20 m², double bed 160 × 200 cm, with a carved headboard and a reading corner.",r_room2:"Bedroom 2",r_room2_p:"20 m², four-poster bed 180 × 200 cm and an antique writing desk.",
 r_extra:"For families",r_extra_p:"Two extra beds for up to 6 guests, plus a cot and a high chair.",
-hand_garden:"Outside is the second living room",garden_h:"Garden & pool",garden_p:"A shady spot under the tree in front of the house, a covered terrace with a large table and barbecue, and a 10 × 5 m pool (1 to 2.5 m deep) that guests share with Sibylle and her husband. From the pool you can see all the way to the Mediterranean, about 40 km away.",hand_cook:"Bon appétit!",cook_h:"Sibylle cooks for you on request",cook_p:"Breakfast, lunch or dinner: Sibylle is happy to cook for her guests. On request and at extra cost.",
+hand_garden:"Outside is the second living room",garden_h:"Garden & pool",garden_p:"In front of the guest house we offer our guests a secluded spot under the linden tree for their private use. A round table with chairs invites you to sit together, and the swing seat under the large hazel is a wonderful place to relax. The large table in the pavilion on the terrace, with barbecue, and the pool with its comfortable seating area are free to use. From the terrace and the pool the view reaches all the way to the Mediterranean.",hand_cook:"Bon appétit!",cook_h:"Sibylle cooks for you on request",cook_p:"Breakfast, lunch or dinner: Sibylle is happy to cook for her guests. On request and at extra cost.",
 pn_size:"pool",pn_depth:"water depth",pn_sea:"to the Mediterranean",hand_area:"Out into nature",area_h:"Surroundings",
 area_p:"Between vineyards, rivers and the sea: towns, beaches and museums are a short drive away, and walking trails start right at the front door.",
 onsite:"on site",d_hike:"Walking and long-distance trails",d_food:"Restaurant and vineyard",d_forest:"Forest",d_shop:"Shops, tennis",d_ride:"Horse riding, doctor",d_town:"Bédarieux station, cinema, museums",d_beach:"Mediterranean beaches",d_air:"Béziers Cap d'Agde airport",
@@ -604,15 +611,15 @@ hand_book:"À bientôt!",book_h:"Book your stay",book_p:"Available dates, prices
 hand_host:"Your host",host_h:"Sibylle",host_p:"Questions about the house, getting here or day trips? Write to Sibylle or give her a call, she's happy to help.",c_phone:"Phone",c_addr:"Address",c_map:"View on the map",foot:"Holiday home in Caussiniojouls, Hérault, Occitanie"},
 fr:{cat_city:"Balades en ville",cat_water:"Au bord de l'eau",cat_art:"Art",cat_sport:"Sport",map_note:"Distances à vol d'oiseau, approximatives",w_orb:"Canoë sur l'Orb",a_mrac:"MRAC Sérignan (art contemporain)",near:"tout près",s_bike:"Voie verte : piste cyclable qui passe presque devant la maison",s_run:"Randonnée et jogging",onsite2:"depuis la porte",g_rev_h:"Avis Google",nav_welcome:"Bienvenue",nav_house:"La maison",nav_garden:"Jardin & piscine",nav_area:"Alentours",nav_reviews:"Avis",nav_prac:"Infos pratiques",nav_contact:"Contact",book_short:"Réserver",
 cap:"Pour 4 à 6 personnes",lead:"Une maison en pierre de style campagne, nichée entre les vignes de l'appellation AOC Faugères. Avec jardin, piscine et vue sur les vignes jusqu'à la mer.",hand_hero:"Bienvenue chez nous !",book_cta:"Disponibilités & réservation",
-f_guests:"personnes",f_rooms:"chambres",f_pool:"m de piscine",f_rating:"avis des hôtes",hand_intro:"Bienvenue dans le Sud",intro_h:"Arriver et respirer",
-intro_p1:"Le gîte se trouve à Caussiniojouls, petit village au nord de Béziers, aux portes du Parc naturel régional du Haut-Languedoc. Il est situé sur le terrain de Sibylle et de son mari, qui accueillent leurs hôtes chaleureusement et partagent volontiers leurs bonnes adresses.",
-intro_p2:"La maison est décorée avec amour dans un style campagne aux touches marocaines : murs en pierre, poutres en bois, tapis rouges, lanternes et fleurs partout. Linge de lit, serviettes, électricité, chauffage et ménage de fin de séjour sont inclus.",
-hand_house:"88 m² pour se sentir bien",house_h:"La maison",house_p:"Au rez-de-chaussée, le séjour, la cuisine et la salle d'eau ; à l'étage, deux grandes chambres sous les poutres. Le rez-de-chaussée est climatisé.",
+f_guests:"personnes",f_rooms:"chambres",f_pool:"m de piscine",f_rating:"avis des hôtes",hand_intro:"Bienvenue dans notre petit paradis !",intro_h:"Arriver et respirer",
+intro_p1:"Je suis Sibylle. Au cours des 20 dernières années, mon mari et moi avons réalisé ici, à Caussiniojouls, le rêve de notre vie. Ce petit village se trouve au nord de Béziers, aux portes du Parc naturel régional du Haut-Languedoc. Dès que nous avions un moment de libre, nous avons travaillé sur notre terrain, et c'est ainsi qu'est née, à côté de notre maison, une merveilleuse maison d'hôtes, décorée dans un style campagne aux touches marocaines.",
+intro_p2:"Nous serons heureux de vous accueillir, que ce soit pour des vacances sportives, culturelles ou simplement pour vous détendre. Nous vous donnerons volontiers nos bonnes adresses.",
+hand_house:"88 m² pour se sentir bien",house_h:"La maison",house_p:"Au rez-de-chaussée, le séjour, la cuisine et la salle d'eau ; à l'étage, deux grandes chambres sous les poutres.",
 ground:"Rez-de-chaussée",upper:"Étage",extras:"Sur demande",r_living:"Séjour",r_living_p:"Canapés confortables devant le vieux mur en pierre et un vidéoprojecteur avec des films pour les soirées.",
-r_kitchen:"Cuisine",r_dining:"Coin repas",r_dining_p:"Juste à côté de la cuisine : un coin repas chaleureux avec une table en bois pour quatre, lumineux et ouvert sur la cour.",r_kitchen_p:"Cuisine ouverte avec four, deux plaques, bouilloire, grille-pain et cafetière italienne.",r_bath:"Salle d'eau",r_bath_p:"Salle d'eau avec douche à l'italienne, lavabo et WC.",
+r_kitchen:"Cuisine",r_dining:"Coin repas",r_dining_p:"Juste à côté de la cuisine, un coin repas chaleureux avec une table en bois pour quatre vous invite à passer à table.",r_stairs:"Escalier",r_stairs_p:"À noter : un escalier en pierre raide mène de l'entrée aux chambres.",r_kitchen_p:"Cuisine ouverte avec four, deux plaques, bouilloire, grille-pain et cafetière italienne.",r_bath:"Salle d'eau",r_bath_p:"Salle d'eau avec douche à l'italienne, lavabo et WC.",
 r_room1:"Chambre 1",r_room1_p:"20 m², lit 160 × 200 cm, tête de lit sculptée et coin lecture.",r_room2:"Chambre 2",r_room2_p:"20 m², lit à baldaquin 180 × 200 cm et un ancien secrétaire.",
 r_extra:"Pour les familles",r_extra_p:"Deux lits d'appoint pour accueillir jusqu'à 6 personnes, un lit parapluie et une chaise haute.",
-hand_garden:"Dehors, le deuxième salon",garden_h:"Jardin & piscine",garden_p:"Un coin ombragé sous l'arbre devant la maison, une terrasse couverte avec grande table et barbecue, et une piscine de 10 × 5 m (1 à 2,5 m de profondeur) partagée avec Sibylle et son mari. Depuis la piscine, la vue porte jusqu'à la Méditerranée, à environ 40 km.",hand_cook:"Bon appétit !",cook_h:"Sibylle cuisine pour vous sur demande",cook_p:"Petit-déjeuner, déjeuner ou dîner : Sibylle aime cuisiner pour ses hôtes. Sur demande et avec supplément.",
+hand_garden:"Dehors, le deuxième salon",garden_h:"Jardin & piscine",garden_p:"Devant la maison d'hôtes, nos hôtes disposent d'un coin ombragé sous le tilleul, rien que pour eux. Une table ronde et des chaises invitent à se retrouver, et la balancelle sous le grand noisetier est idéale pour se détendre. La grande table du pavillon sur la terrasse, avec barbecue, ainsi que la piscine et son salon de jardin sont en libre accès. Depuis la terrasse et la piscine, la vue porte jusqu'à la Méditerranée.",hand_cook:"Bon appétit !",cook_h:"Sibylle cuisine pour vous sur demande",cook_p:"Petit-déjeuner, déjeuner ou dîner : Sibylle aime cuisiner pour ses hôtes. Sur demande et avec supplément.",
 pn_size:"piscine",pn_depth:"profondeur",pn_sea:"jusqu'à la Méditerranée",hand_area:"En pleine nature",area_h:"Les alentours",
 area_p:"Entre vignes, rivières et mer : villes, plages et musées sont à quelques kilomètres, et les sentiers partent de la porte.",
 onsite:"sur place",d_hike:"Sentiers de randonnée et GR",d_food:"Restaurant et vignoble",d_forest:"Forêt",d_shop:"Commerces, tennis",d_ride:"Équitation, médecin",d_town:"Gare de Bédarieux, cinéma, musées",d_beach:"Plages de la Méditerranée",d_air:"Aéroport Béziers Cap d'Agde",
