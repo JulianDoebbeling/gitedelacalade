@@ -691,6 +691,21 @@ const mb=document.getElementById('menu-btn'),mn=document.getElementById('mainnav
 const setMenu=o=>{mn.classList.toggle('open',o);mb.setAttribute('aria-expanded',o)};
 mb.addEventListener('click',()=>setMenu(!mn.classList.contains('open')));
 mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+/* in-page links: scroll exactly to the section (iOS Safari + scroll-snap could land elsewhere) */
+const root=document.documentElement;let navT;
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const id=a.getAttribute('href').slice(1),el=id==='top'?null:document.getElementById(id);
+  if(id!=='top'&&!el)return;
+  e.preventDefault();setMenu(false);
+  const head=document.querySelector('header').offsetHeight;
+  const y=el?Math.max(0,el.getBoundingClientRect().top+window.scrollY-head):0;
+  root.style.scrollSnapType='none';clearTimeout(navT);
+  window.scrollTo({top:y,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
+  try{history.replaceState(null,'','#'+id)}catch(_){}
+  const done=()=>{clearTimeout(navT);navT=setTimeout(()=>{root.style.scrollSnapType=''},150)};
+  if('onscrollend' in window)window.addEventListener('scrollend',done,{once:true});
+  navT=setTimeout(()=>{root.style.scrollSnapType=''},1500);
+}));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
 document.addEventListener('click',e=>{if(mn.classList.contains('open')&&!mn.contains(e.target)&&!mb.contains(e.target))setMenu(false)});
 </script>
